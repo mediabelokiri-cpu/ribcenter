@@ -19,10 +19,13 @@ export default async function HomePage() {
   const [sections, profile, activities, articles, albums] = await Promise.all([
     getHomepageSections(true),
     getProfile(),
-    getPublishedActivities({ limit: 3 }),
+    getPublishedActivities({ limit: 6 }),
     getPublishedArticles({ limit: 3 }),
     getPublishedAlbums(),
   ]);
+
+  const featuredActivities = activities.filter((a) => a.featured);
+  const displayActivities = featuredActivities.length > 0 ? featuredActivities : activities;
 
   return (
     <div className="min-h-screen flex flex-col bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100">
@@ -188,25 +191,33 @@ export default async function HomePage() {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {activities.slice(0, getNumber(content.display_count, 3)).map((act) => (
-                      <div
+                    {displayActivities.slice(0, getNumber(content.display_count, 3)).map((act) => (
+                      <Link
                         key={act.id}
-                        className="p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm flex flex-col justify-between space-y-4"
+                        href={`/rekam-kerja/${act.slug}`}
+                        className="group p-5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm flex flex-col justify-between space-y-4 hover:border-neutral-400 dark:hover:border-neutral-600 transition-all"
                       >
                         <div className="space-y-2">
-                          <span className="inline-block px-2 py-0.5 text-[10px] font-mono font-semibold rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300">
-                            {act.type}
-                          </span>
-                          <h3 className="text-base font-bold text-neutral-900 dark:text-neutral-100">
+                          <div className="flex items-center gap-2">
+                            <span className="inline-block px-2 py-0.5 text-[10px] font-mono font-semibold rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300">
+                              {act.type}
+                            </span>
+                            {act.featured && (
+                              <span className="inline-block px-1.5 py-0.5 text-[10px] font-semibold rounded bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+                                Unggulan
+                              </span>
+                            )}
+                          </div>
+                          <h3 className="text-base font-bold text-neutral-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                             {act.title}
                           </h3>
                           <p className="text-xs text-neutral-500 line-clamp-2">{act.summary}</p>
                         </div>
                         <div className="pt-2 border-t border-neutral-100 dark:border-neutral-800 text-[11px] text-neutral-400 flex justify-between">
                           <span>{act.date}</span>
-                          <span>{act.location}</span>
+                          <span>{act.regency || act.location || 'Wilayah'}</span>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                   </div>
                 </div>

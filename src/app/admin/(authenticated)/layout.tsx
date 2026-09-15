@@ -77,16 +77,33 @@ export default async function AdminAuthenticatedLayout({
             </div>
           </div>
 
-          {/* Modul Mendatang (Phase 3+) */}
+          {/* Rekam Kerja Group */}
+          <div>
+            <span className="px-3 text-[10px] font-bold text-neutral-400 uppercase tracking-wider block mb-1">
+              Rekam Kerja &amp; Program
+            </span>
+            <div className="space-y-1">
+              <Link
+                href="/admin/rekam-kerja"
+                className="flex items-center px-3 py-2 font-medium rounded-lg text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-white transition-colors"
+              >
+                Rekam Kerja
+              </Link>
+              <Link
+                href="/admin/rekam-kerja/kategori"
+                className="flex items-center px-3 py-2 font-medium rounded-lg text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-white transition-colors"
+              >
+                Kategori
+              </Link>
+            </div>
+          </div>
+
+          {/* Modul Mendatang (Phase 4+) */}
           <div>
             <span className="px-3 text-[10px] font-bold text-neutral-400 uppercase tracking-wider block mb-1">
               Modul Mendatang
             </span>
             <div className="space-y-1 opacity-60">
-              <div className="px-3 py-1.5 text-neutral-400 cursor-not-allowed flex justify-between items-center">
-                <span>Rekam Kerja</span>
-                <span className="text-[9px] bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">Fase 3</span>
-              </div>
               <div className="px-3 py-1.5 text-neutral-400 cursor-not-allowed flex justify-between items-center">
                 <span>Kabar &amp; Gagasan</span>
                 <span className="text-[9px] bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded">Fase 4</span>

@@ -267,6 +267,7 @@ export interface Database {
           status: ContentStatus;
           featured: boolean;
           cover_image_url: string | null;
+          video_url: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -286,6 +287,7 @@ export interface Database {
           status?: ContentStatus;
           featured?: boolean;
           cover_image_url?: string | null;
+          video_url?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -305,6 +307,7 @@ export interface Database {
           status?: ContentStatus;
           featured?: boolean;
           cover_image_url?: string | null;
+          video_url?: string | null;
           created_at?: string;
           updated_at?: string;
         };
