@@ -46,48 +46,48 @@ export default async function RekamKerjaPage({ searchParams }: RekamKerjaPagePro
       case 'REKAM_KERJA':
         return 'bg-[#AF191A]/10 text-[#AF191A] border border-[#AF191A]/20';
       case 'PROGRAM':
-        return 'bg-[#191919]/10 text-[#191919] dark:bg-white/10 dark:text-white border border-[#191919]/20';
+        return 'bg-neutral-100 text-[#191919] border border-neutral-300';
       case 'KEGIATAN':
-        return 'bg-[#FFCC00]/20 text-[#191919] dark:text-[#FFCC00] border border-[#FFCC00]/40';
+        return 'bg-[#FFCC00]/20 text-[#191919] border border-[#FFCC00]/50';
       case 'RESES':
-        return 'bg-purple-50 text-purple-900 dark:bg-purple-950 dark:text-purple-300 border border-purple-200';
+        return 'bg-purple-50 text-purple-900 border border-purple-200';
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-[#191919] text-[#191919] dark:text-white">
+    <div className="min-h-screen flex flex-col bg-white text-[#191919]">
       {/* Public Header */}
-      <header className="sticky top-0 z-50 bg-white/95 dark:bg-[#191919]/95 backdrop-blur border-b border-neutral-200 dark:border-[#2A2A2A]">
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="font-bold text-base tracking-tight text-[#191919] dark:text-white flex items-center gap-2">
+          <Link href="/" className="font-bold text-base tracking-tight text-[#191919] flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#AF191A]"></span>
             {profile?.display_name || 'Rahmat Ichwan Bahtiar'}
           </Link>
           <nav className="flex items-center gap-6 text-sm font-medium">
-            <Link href="/" className="text-neutral-600 hover:text-[#AF191A] dark:text-neutral-400 dark:hover:text-[#FFCC00] transition-colors">
+            <Link href="/" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
               Beranda
             </Link>
-            <Link href="/tentang" className="text-neutral-600 hover:text-[#AF191A] dark:text-neutral-400 dark:hover:text-[#FFCC00] transition-colors">
+            <Link href="/tentang" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
               Tentang
             </Link>
-            <Link href="/rekam-kerja" className="text-[#AF191A] dark:text-[#FFCC00] font-bold">
+            <Link href="/rekam-kerja" className="text-[#AF191A] font-bold">
               Rekam Kerja
             </Link>
-            <Link href="/kabar" className="text-neutral-600 hover:text-[#AF191A] dark:text-neutral-400 dark:hover:text-[#FFCC00] transition-colors">
+            <Link href="/kabar" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
               Kabar
             </Link>
-            <Link href="/galeri" className="text-neutral-600 hover:text-[#AF191A] dark:text-neutral-400 dark:hover:text-[#FFCC00] transition-colors">
+            <Link href="/galeri" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
               Galeri
             </Link>
-            <Link href="/aspirasi" className="text-neutral-600 hover:text-[#AF191A] dark:text-neutral-400 dark:hover:text-[#FFCC00] transition-colors">
+            <Link href="/aspirasi" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
               Aspirasi
             </Link>
-            <Link href="/kontak" className="text-neutral-600 hover:text-[#AF191A] dark:text-neutral-400 dark:hover:text-[#FFCC00] transition-colors">
+            <Link href="/kontak" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
               Kontak
             </Link>
             <Link
               href="/admin"
-              className="ml-2 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-[#191919] text-white hover:bg-[#AF191A] dark:bg-white dark:text-[#191919] dark:hover:bg-[#FFCC00] transition-colors shadow-sm"
+              className="ml-2 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-[#191919] text-white hover:bg-[#AF191A] transition-colors shadow-xs"
             >
               CMS Admin
             </Link>
@@ -102,17 +102,17 @@ export default async function RekamKerjaPage({ searchParams }: RekamKerjaPagePro
           <span className="inline-block px-3.5 py-1 text-xs font-bold tracking-wide uppercase rounded-full bg-[#AF191A]/10 text-[#AF191A] border border-[#AF191A]/20">
             Akuntabilitas Publik
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#191919] dark:text-white">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#191919]">
             Rekam Kerja &amp; Program
           </h1>
-          <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-300 leading-relaxed">
+          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
             Transparansi dan dokumentasi pertanggungjawaban kegiatan pengabdian, program advokasi
             kemasyarakatan, catatan reses, dan kerja nyata Rahmat Ichwan Bahtiar.
           </p>
         </div>
 
         {/* Filter Bar with Suspense */}
-        <Suspense fallback={<div className="p-6 bg-white dark:bg-[#1C1C1C] rounded-xl border border-neutral-200 dark:border-[#2A2A2A] text-xs text-neutral-400">Memuat filter...</div>}>
+        <Suspense fallback={<div className="p-6 bg-white rounded-xl border border-neutral-200 text-xs text-neutral-400">Memuat filter...</div>}>
           <RekamKerjaFilter
             categories={categories}
             regencies={regencies}
@@ -125,7 +125,7 @@ export default async function RekamKerjaPage({ searchParams }: RekamKerjaPagePro
         </Suspense>
 
         {/* Results Counter */}
-        <div className="flex justify-between items-center text-xs text-neutral-500 border-b border-neutral-200 dark:border-[#2A2A2A] pb-3">
+        <div className="flex justify-between items-center text-xs text-neutral-500 border-b border-neutral-200 pb-3">
           <span>
             Menemukan <strong>{activities.length}</strong> catatan rekam kerja publik
           </span>
@@ -133,8 +133,8 @@ export default async function RekamKerjaPage({ searchParams }: RekamKerjaPagePro
 
         {/* Activities Grid */}
         {activities.length === 0 ? (
-          <div className="p-12 text-center rounded-2xl border border-neutral-200 dark:border-[#2A2A2A] bg-white dark:bg-[#1C1C1C] space-y-4">
-            <h3 className="text-base font-bold text-[#191919] dark:text-white">
+          <div className="p-12 text-center rounded-2xl border border-neutral-200 bg-white space-y-4">
+            <h3 className="text-base font-bold text-[#191919]">
               Tidak Ada Rekam Kerja yang Ditemukan
             </h3>
             <p className="text-xs text-neutral-500 max-w-md mx-auto">
@@ -153,7 +153,7 @@ export default async function RekamKerjaPage({ searchParams }: RekamKerjaPagePro
               <Link
                 key={act.id}
                 href={`/rekam-kerja/${act.slug}`}
-                className="group flex flex-col justify-between p-6 rounded-2xl border border-neutral-200 dark:border-[#2A2A2A] bg-white dark:bg-[#1C1C1C] hover:border-[#AF191A] dark:hover:border-[#FFCC00] transition-all shadow-sm hover:shadow"
+                className="group flex flex-col justify-between p-6 rounded-2xl border border-neutral-200 bg-white hover:border-[#AF191A] transition-all shadow-xs hover:shadow-sm"
               >
                 <div className="space-y-3">
                   {/* Badges */}
@@ -166,7 +166,7 @@ export default async function RekamKerjaPage({ searchParams }: RekamKerjaPagePro
                       {act.type}
                     </span>
                     {act.category && (
-                      <span className="inline-block px-2 py-0.5 text-[10px] font-medium rounded-md bg-neutral-100 dark:bg-[#252525] text-neutral-700 dark:text-neutral-300">
+                      <span className="inline-block px-2 py-0.5 text-[10px] font-medium rounded-md bg-neutral-100 text-neutral-700">
                         {act.category.name}
                       </span>
                     )}
@@ -178,26 +178,26 @@ export default async function RekamKerjaPage({ searchParams }: RekamKerjaPagePro
                   </div>
 
                   {/* Title */}
-                  <h2 className="text-base font-bold text-[#191919] dark:text-white group-hover:text-[#AF191A] dark:group-hover:text-[#FFCC00] transition-colors leading-snug">
+                  <h2 className="text-base font-bold text-[#191919] group-hover:text-[#AF191A] transition-colors leading-snug">
                     {act.title}
                   </h2>
 
                   {/* Summary */}
                   {act.summary && (
-                    <p className="text-xs text-neutral-600 dark:text-neutral-400 line-clamp-3 leading-relaxed">
+                    <p className="text-xs text-neutral-600 line-clamp-3 leading-relaxed">
                       {act.summary}
                     </p>
                   )}
                 </div>
 
                 {/* Metadata Footer */}
-                <div className="pt-4 mt-4 border-t border-neutral-100 dark:border-[#2A2A2A] text-[11px] text-neutral-500 space-y-1">
+                <div className="pt-4 mt-4 border-t border-neutral-100 text-[11px] text-neutral-500 space-y-1">
                   <div className="flex justify-between items-center">
                     <span className="font-mono">{act.date}</span>
                     <span>{act.regency || act.location || 'Wilayah Umum'}</span>
                   </div>
                   {act.beneficiaries > 0 && (
-                    <div className="text-[10px] text-[#AF191A] dark:text-[#FFCC00] font-semibold">
+                    <div className="text-[10px] text-[#AF191A] font-semibold">
                       Penerima Manfaat: {act.beneficiaries.toLocaleString('id-ID')} orang/kelompok
                     </div>
                   )}
@@ -209,13 +209,13 @@ export default async function RekamKerjaPage({ searchParams }: RekamKerjaPagePro
       </main>
 
       {/* Public Footer */}
-      <footer className="py-12 px-6 bg-[#191919] border-t border-[#2A2A2A] text-xs text-neutral-400 text-center mt-20">
+      <footer className="py-12 px-6 bg-white border-t border-neutral-200 text-xs text-neutral-500 text-center mt-20">
         <div className="max-w-6xl mx-auto space-y-2">
-          <p className="font-bold text-white text-sm">
+          <p className="font-bold text-[#191919] text-sm">
             {profile?.display_name || 'Rahmat Ichwan Bahtiar'}
           </p>
-          <p className="text-[#FFCC00] font-medium">Platform Resmi Informasi &amp; Akuntabilitas Publik</p>
-          <p className="text-[11px] text-neutral-500 pt-4">
+          <p className="text-[#AF191A] font-medium">Platform Resmi Informasi &amp; Akuntabilitas Publik</p>
+          <p className="text-[11px] text-neutral-400 pt-4">
             &copy; {new Date().getFullYear()} Rahmat Ichwan Bahtiar. All rights reserved.
           </p>
         </div>

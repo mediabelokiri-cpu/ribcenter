@@ -9,12 +9,12 @@ export default async function AdminTimelinePage() {
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      <div className="flex justify-between items-center pb-4 border-b border-neutral-200 dark:border-neutral-800">
+      <div className="flex justify-between items-center pb-4 border-b border-neutral-200">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+          <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
             Profil &amp; Rekam Jejak
           </span>
-          <h1 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mt-0.5">
+          <h1 className="text-2xl font-bold tracking-tight text-[#191919] mt-0.5">
             Perjalanan Politik &amp; Linimasa
           </h1>
           <p className="text-xs text-neutral-500 mt-1">

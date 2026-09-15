@@ -7,15 +7,14 @@
   --brand-dark: #191919;
   --brand-red: #af191a;
   --brand-yellow: #ffcc00;
+  color-scheme: light;
 }
 
 @theme {
   --color-brand-white: #ffffff;
   --color-brand-dark: #191919;
-  --color-brand-dark-surface: #242424;
-  --color-brand-dark-border: #333333;
   --color-brand-red: #af191a;
-  --color-brand-red-hover: #921415;
+  --color-brand-red-hover: #8e1415;
   --color-brand-red-subtle: #fdf2f2;
   --color-brand-yellow: #ffcc00;
   --color-brand-yellow-hover: #e6b800;
@@ -29,15 +28,9 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #191919;
-    --foreground: #ffffff;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #ffffff;
+  color: #191919;
   font-family: Arial, Helvetica, sans-serif;
 }
+
