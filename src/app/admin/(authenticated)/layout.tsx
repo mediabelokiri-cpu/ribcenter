@@ -101,19 +101,42 @@ export default async function AdminAuthenticatedLayout({
             </div>
           </div>
 
-          {/* Modul Mendatang (Phase 4+) */}
+          {/* Kabar & Publikasi Group (Phase 4) */}
+          <div>
+            <span className="px-3 text-[10px] font-bold text-neutral-400 uppercase tracking-wider block mb-1.5">
+              Kabar &amp; Publikasi
+            </span>
+            <div className="space-y-1">
+              <Link
+                href="/admin/kabar/berita"
+                className="flex items-center px-3 py-2 font-medium rounded-lg text-neutral-700 hover:bg-neutral-100 hover:text-[#AF191A] transition-colors"
+              >
+                Berita
+              </Link>
+              <Link
+                href="/admin/kabar/gagasan"
+                className="flex items-center px-3 py-2 font-medium rounded-lg text-neutral-700 hover:bg-neutral-100 hover:text-[#AF191A] transition-colors"
+              >
+                Gagasan
+              </Link>
+              <Link
+                href="/admin/kabar"
+                className="flex items-center px-3 py-2 font-medium rounded-lg text-neutral-700 hover:bg-neutral-100 hover:text-[#AF191A] transition-colors"
+              >
+                Semua Artikel
+              </Link>
+            </div>
+          </div>
+
+          {/* Modul Mendatang (Phase 5+) */}
           <div>
             <span className="px-3 text-[10px] font-bold text-neutral-400 uppercase tracking-wider block mb-1.5">
               Modul Mendatang
             </span>
             <div className="space-y-1 opacity-60">
               <div className="px-3 py-1.5 text-neutral-500 cursor-not-allowed flex justify-between items-center">
-                <span>Kabar &amp; Gagasan</span>
-                <span className="text-[9px] bg-neutral-100 px-1.5 py-0.5 rounded text-neutral-500 border border-neutral-200">Fase 4</span>
-              </div>
-              <div className="px-3 py-1.5 text-neutral-500 cursor-not-allowed flex justify-between items-center">
-                <span>Media &amp; Album</span>
-                <span className="text-[9px] bg-neutral-100 px-1.5 py-0.5 rounded text-neutral-500 border border-neutral-200">Fase 4</span>
+                <span>Media &amp; Galeri</span>
+                <span className="text-[9px] bg-neutral-100 px-1.5 py-0.5 rounded text-neutral-500 border border-neutral-200">Fase 5</span>
               </div>
               <div className="px-3 py-1.5 text-neutral-500 cursor-not-allowed flex justify-between items-center">
                 <span>Aspirasi Warga</span>
@@ -128,8 +151,8 @@ export default async function AdminAuthenticatedLayout({
         </nav>
 
         <div className="p-4 border-t border-neutral-200 bg-neutral-50/70 text-xs text-neutral-500">
-          <span className="block font-semibold text-[#191919]">Fase 3: Rekam Kerja Engine</span>
-          <span className="text-[11px] text-[#AF191A] font-medium">Fixed System, Flexible Content</span>
+          <span className="block font-semibold text-[#191919]">Fase 4: Sistem Kabar &amp; Gagasan</span>
+          <span className="text-[11px] text-[#AF191A] font-medium">Unified Publication Engine</span>
         </div>
       </aside>
 

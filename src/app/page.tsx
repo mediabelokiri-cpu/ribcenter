@@ -20,7 +20,7 @@ export default async function HomePage() {
     getHomepageSections(true),
     getProfile(),
     getPublishedActivities({ limit: 6 }),
-    getPublishedArticles({ limit: 3 }),
+    getPublishedArticles({ limit: 6 }),
     getPublishedAlbums(),
   ]);
 
@@ -256,23 +256,47 @@ export default async function HomePage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {articles.slice(0, getNumber(content.display_count, 3)).map((art) => (
-                      <div
+                      <Link
                         key={art.id}
-                        className="p-5 rounded-xl border border-neutral-200 bg-white shadow-xs flex flex-col justify-between space-y-4 hover:border-[#AF191A] transition-colors"
+                        href={`/kabar/${art.slug}`}
+                        className="group p-5 rounded-xl border border-neutral-200 bg-white shadow-xs flex flex-col justify-between space-y-4 hover:border-[#AF191A] hover:shadow-sm transition-all"
                       >
                         <div className="space-y-2">
-                          <span className="inline-block px-2 py-0.5 text-[10px] font-semibold rounded bg-[#AF191A]/10 text-[#AF191A] border border-[#AF191A]/20">
-                            {art.type}
-                          </span>
-                          <h3 className="text-base font-bold text-[#191919]">
+                          <div className="flex items-center gap-2">
+                            <span
+                              className={`inline-block px-2 py-0.5 text-[10px] font-bold rounded ${
+                                art.type === 'BERITA'
+                                  ? 'bg-[#AF191A]/10 text-[#AF191A] border border-[#AF191A]/20'
+                                  : 'bg-neutral-100 text-[#191919] border border-neutral-300'
+                              }`}
+                            >
+                              {art.type}
+                            </span>
+                            {art.featured && (
+                              <span className="text-[10px] font-bold text-[#FFCC00]">
+                                ★ Unggulan
+                              </span>
+                            )}
+                            {art.category && (
+                              <span className="text-[10px] text-neutral-500">
+                                • {art.category}
+                              </span>
+                            )}
+                          </div>
+                          <h3 className="text-base font-bold text-[#191919] group-hover:text-[#AF191A] transition-colors line-clamp-2 leading-snug">
                             {art.title}
                           </h3>
-                          <p className="text-xs text-neutral-600 line-clamp-2 leading-relaxed">{art.excerpt}</p>
+                          <p className="text-xs text-neutral-600 line-clamp-2 leading-relaxed">
+                            {art.excerpt}
+                          </p>
                         </div>
-                        <div className="pt-2 border-t border-neutral-100 text-[11px] text-neutral-500">
-                          Penulis: {art.author}
+                        <div className="pt-2 border-t border-neutral-100 flex items-center justify-between text-[11px] text-neutral-500">
+                          <span>{art.author}</span>
+                          <span className="font-semibold text-[#AF191A] group-hover:underline">
+                            Baca Selengkapnya &rarr;
+                          </span>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                   </div>
                 </div>
