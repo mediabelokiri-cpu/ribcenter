@@ -24,7 +24,9 @@ export function isSupabaseConfigured(): boolean {
     url &&
     anonKey &&
     url !== 'your-supabase-project-url' &&
-    anonKey !== 'your-supabase-anon-key'
+    anonKey !== 'your-supabase-anon-key' &&
+    !url.includes('placeholder') &&
+    !anonKey.includes('placeholder')
   );
 }
 

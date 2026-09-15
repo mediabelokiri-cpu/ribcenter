@@ -1,28 +1,29 @@
-import { getProfileForAdmin } from '@/services/profile';
-import { ProfileForm } from './profile-form';
+import { getTimeline } from '@/services/profile';
+import { TimelineManager } from './timeline-manager';
 
 export const dynamic = 'force-dynamic';
 
-export default async function AdminProfilePage() {
-  const profile = await getProfileForAdmin();
+export default async function AdminTimelinePage() {
+  // Load all timeline items including unpublished for admin
+  const items = await getTimeline(false);
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex justify-between items-center pb-4 border-b border-neutral-200 dark:border-neutral-800">
         <div>
           <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-            Manajemen Konten
+            Profil &amp; Rekam Jejak
           </span>
           <h1 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mt-0.5">
-            Profil Utama Rahmat Ichwan Bahtiar
+            Perjalanan Politik &amp; Linimasa
           </h1>
           <p className="text-xs text-neutral-500 mt-1">
-            Kelola data biografi, visi, misi, dan informasi publik utama yang tampil di beranda dan halaman tentang.
+            Kelola tonggak peristiwa, karier, dan perjalanan politik Rahmat Ichwan Bahtiar secara kronologis.
           </p>
         </div>
       </div>
 
-      <ProfileForm initialProfile={profile} />
+      <TimelineManager initialItems={items} />
     </div>
   );
 }

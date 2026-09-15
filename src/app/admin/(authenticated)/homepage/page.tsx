@@ -1,16 +1,28 @@
-export default function AdminHomepageModulePage() {
+import { getHomepageSections } from '@/services/homepage';
+import { HomepageSectionManager } from './homepage-section-manager';
+
+export const dynamic = 'force-dynamic';
+
+export default async function AdminHomepagePage() {
+  const sections = await getHomepageSections(false);
+
   return (
-    <div className="p-8 bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 text-center max-w-xl mx-auto mt-12">
-      <span className="inline-block px-2.5 py-1 text-xs font-semibold tracking-wide uppercase rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 mb-3">
-        Modul CMS
-      </span>
-      <h1 className="text-xl font-bold mb-2">Homepage Manager</h1>
-      <p className="text-xs text-neutral-500 mb-6">
-        Modul ini akan diimplementasikan pada <strong>Phase 2 — Admin Profile &amp; Homepage</strong>.
-      </p>
-      <div className="p-3 bg-neutral-50 dark:bg-neutral-800 text-[11px] font-mono text-neutral-400 rounded">
-        Fondasi Database: public.homepage_sections (Telah Siap)
+    <div className="max-w-4xl mx-auto space-y-6">
+      <div className="flex justify-between items-center pb-4 border-b border-neutral-200 dark:border-neutral-800">
+        <div>
+          <span className="text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+            Tampilan &amp; Layout
+          </span>
+          <h1 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 mt-0.5">
+            Homepage Manager
+          </h1>
+          <p className="text-xs text-neutral-500 mt-1">
+            Atur visibilitas, urutan tampilan, dan narasi pendukung untuk setiap section di halaman utama.
+          </p>
+        </div>
       </div>
+
+      <HomepageSectionManager initialSections={sections} />
     </div>
   );
 }
