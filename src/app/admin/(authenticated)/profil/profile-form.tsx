@@ -66,42 +66,42 @@ export function ProfileForm({ initialProfile }: { initialProfile: Profile }) {
       />
 
       {/* Identitas Utama */}
-      <div className="p-6 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 space-y-4">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-neutral-500">
+      <div className="p-6 rounded-xl bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800 space-y-4">
+        <h2 className="text-sm font-bold uppercase tracking-wider text-[#AF191A] dark:text-[#FFCC00]">
           1. Identitas Utama
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
-              Nama Lengkap &amp; Gelar <span className="text-red-500">*</span>
+              Nama Lengkap &amp; Gelar <span className="text-[#AF191A]">*</span>
             </label>
             <input
               name="name"
               type="text"
               required
               defaultValue={initialProfile.name}
-              className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-100"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-[#AF191A]"
             />
           </div>
 
           <div>
             <label className="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
-              Display Name (Nama Tampilan) <span className="text-red-500">*</span>
+              Display Name (Nama Tampilan) <span className="text-[#AF191A]">*</span>
             </label>
             <input
               name="display_name"
               type="text"
               required
               defaultValue={initialProfile.display_name}
-              className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-100"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-[#AF191A]"
             />
           </div>
         </div>
 
         <div>
           <label className="block text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
-            Jabatan / Headline Publik <span className="text-red-500">*</span>
+            Jabatan / Headline Publik <span className="text-[#AF191A]">*</span>
           </label>
           <input
             name="title"
@@ -109,7 +109,7 @@ export function ProfileForm({ initialProfile }: { initialProfile: Profile }) {
             required
             defaultValue={initialProfile.title}
             placeholder="Contoh: Tokoh Publik & Pengabdi Masyarakat"
-            className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-100"
+            className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-[#AF191A]"
           />
         </div>
 
@@ -122,14 +122,14 @@ export function ProfileForm({ initialProfile }: { initialProfile: Profile }) {
             rows={5}
             defaultValue={initialProfile.biography || ''}
             placeholder="Tuliskan biografi pengabdian dan perjalanan Rahmat Ichwan Bahtiar..."
-            className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-100"
+            className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-[#AF191A]"
           />
         </div>
       </div>
 
       {/* Visi & Misi */}
-      <div className="p-6 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 space-y-4">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-neutral-500">
+      <div className="p-6 rounded-xl bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800 space-y-4">
+        <h2 className="text-sm font-bold uppercase tracking-wider text-[#AF191A] dark:text-[#FFCC00]">
           2. Visi &amp; Misi
         </h2>
 
@@ -142,7 +142,7 @@ export function ProfileForm({ initialProfile }: { initialProfile: Profile }) {
             rows={3}
             defaultValue={initialProfile.vision || ''}
             placeholder="Visi utama yang diusung..."
-            className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-100"
+            className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-[#AF191A]"
           />
         </div>
 
@@ -155,21 +155,21 @@ export function ProfileForm({ initialProfile }: { initialProfile: Profile }) {
             rows={3}
             defaultValue={initialProfile.mission || ''}
             placeholder="Poin-poin misi pengabdian..."
-            className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-neutral-100"
+            className="w-full px-3 py-2 text-sm rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-[#AF191A]"
           />
         </div>
       </div>
 
       {/* Riwayat Pendidikan */}
-      <div className="p-6 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 space-y-4">
+      <div className="p-6 rounded-xl bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800 space-y-4">
         <div className="flex justify-between items-center">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-neutral-500">
+          <h2 className="text-sm font-bold uppercase tracking-wider text-[#AF191A] dark:text-[#FFCC00]">
             3. Riwayat Pendidikan
           </h2>
           <button
             type="button"
             onClick={handleAddEducation}
-            className="px-3 py-1.5 text-xs font-medium text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 rounded-lg transition-colors"
+            className="px-3 py-1.5 text-xs font-medium text-[#191919] dark:text-white bg-neutral-100 dark:bg-neutral-800 hover:bg-[#AF191A] hover:text-white rounded-lg transition-colors"
           >
             + Tambah Riwayat Pendidikan
           </button>
@@ -196,8 +196,8 @@ export function ProfileForm({ initialProfile }: { initialProfile: Profile }) {
                     onChange={(e) =>
                       handleEducationChange(index, 'institution', e.target.value)
                     }
-                    placeholder="Nama institusi"
-                    className="w-full px-2.5 py-1.5 text-xs rounded border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700"
+                    placeholder="Universitas Indonesia"
+                    className="w-full px-2.5 py-1.5 text-xs rounded border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 focus:ring-1 focus:ring-[#AF191A]"
                   />
                 </div>
 
@@ -212,7 +212,7 @@ export function ProfileForm({ initialProfile }: { initialProfile: Profile }) {
                       handleEducationChange(index, 'field', e.target.value)
                     }
                     placeholder="S1 Ilmu Politik"
-                    className="w-full px-2.5 py-1.5 text-xs rounded border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700"
+                    className="w-full px-2.5 py-1.5 text-xs rounded border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 focus:ring-1 focus:ring-[#AF191A]"
                   />
                 </div>
 
@@ -228,13 +228,13 @@ export function ProfileForm({ initialProfile }: { initialProfile: Profile }) {
                         handleEducationChange(index, 'year', e.target.value)
                       }
                       placeholder="2010"
-                      className="w-full px-2.5 py-1.5 text-xs rounded border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700"
+                      className="w-full px-2.5 py-1.5 text-xs rounded border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 focus:ring-1 focus:ring-[#AF191A]"
                     />
                   </div>
                   <button
                     type="button"
                     onClick={() => handleRemoveEducation(index)}
-                    className="px-2 py-1.5 text-xs font-semibold text-red-600 hover:text-red-700 rounded self-end mb-0.5"
+                    className="px-2 py-1.5 text-xs font-semibold text-[#AF191A] hover:underline rounded self-end mb-0.5"
                     title="Hapus baris"
                   >
                     Hapus
@@ -247,9 +247,9 @@ export function ProfileForm({ initialProfile }: { initialProfile: Profile }) {
       </div>
 
       {/* Pengaturan Publikasi */}
-      <div className="p-6 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
+      <div className="p-6 rounded-xl bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
         <div>
-          <span className="text-sm font-bold block">Status Publikasi Profil</span>
+          <span className="text-sm font-bold block text-[#191919] dark:text-white">Status Publikasi Profil</span>
           <span className="text-xs text-neutral-500">
             Jika dinonaktifkan, halaman profil publik tidak akan menampilkan data ini.
           </span>
@@ -261,7 +261,7 @@ export function ProfileForm({ initialProfile }: { initialProfile: Profile }) {
             defaultChecked={initialProfile.is_published}
             className="sr-only peer"
           />
-          <div className="w-11 h-6 bg-neutral-200 peer-focus:outline-none rounded-full peer dark:bg-neutral-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-600"></div>
+          <div className="w-11 h-6 bg-neutral-200 peer-focus:outline-none rounded-full peer dark:bg-neutral-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#AF191A]"></div>
         </label>
       </div>
 
@@ -270,7 +270,7 @@ export function ProfileForm({ initialProfile }: { initialProfile: Profile }) {
         <button
           type="submit"
           disabled={isPending}
-          className="px-6 py-2.5 text-sm font-semibold text-white bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200 rounded-lg transition-colors disabled:opacity-50"
+          className="px-6 py-2.5 text-sm font-semibold text-white bg-[#AF191A] hover:bg-[#8e1415] rounded-lg transition-colors disabled:opacity-50"
         >
           {isPending ? 'Menyimpan Perubahan...' : 'Simpan Profil'}
         </button>

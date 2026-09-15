@@ -50,9 +50,9 @@ export function RekamKerjaFilter({
   ];
 
   return (
-    <div className="space-y-4 p-5 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-sm">
+    <div className="space-y-4 p-5 rounded-2xl bg-white dark:bg-[#1C1C1C] border border-neutral-200 dark:border-[#2A2A2A] shadow-sm">
       {/* Type Pill Tabs */}
-      <div className="flex flex-wrap gap-2 pb-3 border-b border-neutral-100 dark:border-neutral-800">
+      <div className="flex flex-wrap gap-2 pb-3 border-b border-neutral-100 dark:border-[#2A2A2A]">
         {typeTabs.map((tab) => {
           const isActive = currentType === tab.value;
           return (
@@ -62,8 +62,8 @@ export function RekamKerjaFilter({
               onClick={() => updateParam('type', tab.value)}
               className={`px-3.5 py-1.5 text-xs font-semibold rounded-xl transition-colors ${
                 isActive
-                  ? 'bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 shadow-sm'
-                  : 'bg-neutral-50 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-700'
+                  ? 'bg-[#AF191A] text-white shadow-sm'
+                  : 'bg-neutral-100 dark:bg-[#252525] text-neutral-700 dark:text-neutral-300 hover:bg-[#AF191A]/10 hover:text-[#AF191A]'
               }`}
             >
               {tab.label}
@@ -76,13 +76,13 @@ export function RekamKerjaFilter({
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {/* Category Select */}
         <div>
-          <label className="block text-[11px] font-semibold text-neutral-500 mb-1">
+          <label className="block text-[11px] font-semibold text-neutral-500 dark:text-neutral-400 mb-1">
             Kategori
           </label>
           <select
             value={currentCategory}
             onChange={(e) => updateParam('category', e.target.value)}
-            className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+            className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-[#333333] rounded-lg bg-white dark:bg-[#252525] text-[#191919] dark:text-white focus:outline-none focus:border-[#AF191A]"
           >
             <option value="">Semua Kategori</option>
             {categories.map((c) => (
@@ -95,13 +95,13 @@ export function RekamKerjaFilter({
 
         {/* Regency Select */}
         <div>
-          <label className="block text-[11px] font-semibold text-neutral-500 mb-1">
+          <label className="block text-[11px] font-semibold text-neutral-500 dark:text-neutral-400 mb-1">
             Wilayah / Kabupaten
           </label>
           <select
             value={currentRegency}
             onChange={(e) => updateParam('regency', e.target.value)}
-            className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+            className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-[#333333] rounded-lg bg-white dark:bg-[#252525] text-[#191919] dark:text-white focus:outline-none focus:border-[#AF191A]"
           >
             <option value="">Semua Wilayah</option>
             {regencies.map((reg) => (
@@ -114,13 +114,13 @@ export function RekamKerjaFilter({
 
         {/* Year Select */}
         <div>
-          <label className="block text-[11px] font-semibold text-neutral-500 mb-1">
+          <label className="block text-[11px] font-semibold text-neutral-500 dark:text-neutral-400 mb-1">
             Periode / Tahun
           </label>
           <select
             value={currentYear}
             onChange={(e) => updateParam('year', e.target.value)}
-            className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+            className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-[#333333] rounded-lg bg-white dark:bg-[#252525] text-[#191919] dark:text-white focus:outline-none focus:border-[#AF191A]"
           >
             <option value="">Semua Periode</option>
             {years.map((yr) => (
@@ -138,7 +138,7 @@ export function RekamKerjaFilter({
           <button
             type="button"
             onClick={handleReset}
-            className="text-xs text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 underline font-semibold"
+            className="text-xs text-[#AF191A] dark:text-[#FFCC00] hover:underline font-semibold"
           >
             Bersihkan Semua Filter
           </button>

@@ -7,11 +7,11 @@ export default async function AdminDashboardPage() {
   return (
     <div className="space-y-6">
       {/* Welcome Banner */}
-      <div className="p-6 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
-        <span className="inline-block px-2.5 py-1 text-xs font-semibold tracking-wide uppercase rounded bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 mb-2">
-          Phase 1 — CMS &amp; Database Foundation
+      <div className="p-6 rounded-xl bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800">
+        <span className="inline-block px-2.5 py-1 text-xs font-semibold tracking-wide uppercase rounded bg-[#AF191A]/10 text-[#AF191A] dark:bg-[#AF191A]/20 dark:text-[#FFCC00] mb-2">
+          CMS &amp; Platform Foundation
         </span>
-        <h1 className="text-2xl font-bold tracking-tight">Dashboard Ringkasan</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-[#191919] dark:text-white">Dashboard Ringkasan</h1>
         <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
           Fondasi CMS dan metrik agregasi basis data platform Rahmat Ichwan Bahtiar.
         </p>
@@ -19,11 +19,11 @@ export default async function AdminDashboardPage() {
 
       {/* Metrics Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+        <div className="p-5 rounded-xl bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800">
           <span className="text-xs font-medium text-neutral-500 uppercase tracking-wider">
             Rekam Kerja / Kegiatan
           </span>
-          <div className="text-3xl font-extrabold mt-2 text-neutral-900 dark:text-neutral-100">
+          <div className="text-3xl font-extrabold mt-2 text-[#191919] dark:text-white">
             {stats.counts.totalActivities}
           </div>
           <span className="text-xs text-neutral-400 mt-1 block">
@@ -31,11 +31,11 @@ export default async function AdminDashboardPage() {
           </span>
         </div>
 
-        <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+        <div className="p-5 rounded-xl bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800">
           <span className="text-xs font-medium text-neutral-500 uppercase tracking-wider">
             Kabar &amp; Gagasan
           </span>
-          <div className="text-3xl font-extrabold mt-2 text-neutral-900 dark:text-neutral-100">
+          <div className="text-3xl font-extrabold mt-2 text-[#191919] dark:text-white">
             {stats.counts.totalArticles}
           </div>
           <span className="text-xs text-neutral-400 mt-1 block">
@@ -43,11 +43,11 @@ export default async function AdminDashboardPage() {
           </span>
         </div>
 
-        <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+        <div className="p-5 rounded-xl bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800">
           <span className="text-xs font-medium text-neutral-500 uppercase tracking-wider">
             Galeri &amp; Dokumentasi
           </span>
-          <div className="text-3xl font-extrabold mt-2 text-neutral-900 dark:text-neutral-100">
+          <div className="text-3xl font-extrabold mt-2 text-[#191919] dark:text-white">
             {stats.counts.totalAlbums}
           </div>
           <span className="text-xs text-neutral-400 mt-1 block">
@@ -55,18 +55,18 @@ export default async function AdminDashboardPage() {
           </span>
         </div>
 
-        <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+        <div className="p-5 rounded-xl bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800">
           <div className="flex justify-between items-start">
             <span className="text-xs font-medium text-neutral-500 uppercase tracking-wider">
               Aspirasi Warga
             </span>
             {stats.counts.pendingAspirations > 0 && (
-              <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+              <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-[#FFCC00]/20 text-[#191919] dark:text-[#FFCC00]">
                 {stats.counts.pendingAspirations} BARU
               </span>
             )}
           </div>
-          <div className="text-3xl font-extrabold mt-2 text-neutral-900 dark:text-neutral-100">
+          <div className="text-3xl font-extrabold mt-2 text-[#191919] dark:text-white">
             {stats.counts.totalAspirations}
           </div>
           <span className="text-xs text-neutral-400 mt-1 block">
@@ -78,12 +78,12 @@ export default async function AdminDashboardPage() {
       {/* Two Column Section: Latest Aspirations & Latest Activities */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Latest Aspirations */}
-        <div className="p-6 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+        <div className="p-6 rounded-xl bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-base font-bold">Aspirasi Masuk Terbaru</h2>
+            <h2 className="text-base font-bold text-[#191919] dark:text-white">Aspirasi Masuk Terbaru</h2>
             <Link
               href="/admin/aspirasi"
-              className="text-xs font-medium text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 underline"
+              className="text-xs font-medium text-[#AF191A] hover:underline"
             >
               Lihat Semua
             </Link>
@@ -105,8 +105,8 @@ export default async function AdminDashboardPage() {
                     <span
                       className={`px-2 py-0.5 text-[10px] font-semibold rounded ${
                         asp.status === 'BARU'
-                          ? 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
-                          : 'bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-200'
+                          ? 'bg-[#FFCC00]/20 text-[#191919] dark:text-[#FFCC00]'
+                          : 'bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200'
                       }`}
                     >
                       {asp.status}
@@ -124,12 +124,12 @@ export default async function AdminDashboardPage() {
         </div>
 
         {/* Latest Activities */}
-        <div className="p-6 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+        <div className="p-6 rounded-xl bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-base font-bold">Rekam Kerja Terbaru</h2>
+            <h2 className="text-base font-bold text-[#191919] dark:text-white">Rekam Kerja Terbaru</h2>
             <Link
               href="/admin/rekam-kerja"
-              className="text-xs font-medium text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 underline"
+              className="text-xs font-medium text-[#AF191A] hover:underline"
             >
               Lihat Semua
             </Link>

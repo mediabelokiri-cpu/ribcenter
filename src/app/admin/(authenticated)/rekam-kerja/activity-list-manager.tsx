@@ -103,13 +103,13 @@ export function ActivityListManager({
   const getTypeBadge = (type: ActivityType) => {
     switch (type) {
       case 'REKAM_KERJA':
-        return 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800';
+        return 'bg-[#AF191A]/10 text-[#AF191A] dark:bg-[#AF191A]/20 dark:text-[#FFCC00] border-[#AF191A]/30';
       case 'PROGRAM':
-        return 'bg-blue-50 text-blue-800 dark:bg-blue-950 dark:text-blue-300 border-blue-200 dark:border-blue-800';
+        return 'bg-[#191919] text-white dark:bg-white dark:text-[#191919] border-neutral-700';
       case 'KEGIATAN':
-        return 'bg-amber-50 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border-amber-200 dark:border-amber-800';
+        return 'bg-[#FFCC00]/20 text-[#191919] dark:text-[#FFCC00] border-[#FFCC00]/50';
       case 'RESES':
-        return 'bg-purple-50 text-purple-800 dark:bg-purple-950 dark:text-purple-300 border-purple-200 dark:border-purple-800';
+        return 'bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200 border-neutral-300 dark:border-neutral-700';
     }
   };
 
@@ -118,7 +118,7 @@ export function ActivityListManager({
       {/* Top Header Actions */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+          <h1 className="text-2xl font-bold tracking-tight text-[#191919] dark:text-white">
             Rekam Kerja &amp; Program
           </h1>
           <p className="text-xs text-neutral-500 mt-1">
@@ -128,13 +128,13 @@ export function ActivityListManager({
         <div className="flex items-center gap-3">
           <Link
             href="/admin/rekam-kerja/kategori"
-            className="px-3.5 py-2 text-xs font-semibold rounded-lg border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 transition-colors"
+            className="px-3.5 py-2 text-xs font-semibold rounded-lg border border-neutral-300 dark:border-neutral-700 hover:border-[#AF191A] text-neutral-700 dark:text-neutral-300 transition-colors"
           >
             Kelola Kategori ({categories.length})
           </Link>
           <Link
             href="/admin/rekam-kerja/tambah"
-            className="px-4 py-2 text-xs font-semibold rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 shadow-sm transition-opacity"
+            className="px-4 py-2 text-xs font-semibold rounded-lg bg-[#AF191A] text-white hover:bg-[#8e1415] shadow-sm transition-colors"
           >
             + Tambah Rekam Kerja
           </Link>
@@ -154,7 +154,7 @@ export function ActivityListManager({
       )}
 
       {/* Filter and Search Bar */}
-      <div className="p-4 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm space-y-3">
+      <div className="p-4 bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm space-y-3">
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
           {/* Search Input */}
           <div className="sm:col-span-1">
@@ -163,7 +163,7 @@ export function ActivityListManager({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Cari judul, ringkasan, lokasi..."
-              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-900"
+              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-[#AF191A]"
             />
           </div>
 
@@ -172,7 +172,7 @@ export function ActivityListManager({
             <select
               value={typeFilter}
               onChange={(e) => setTypeFilter(e.target.value)}
-              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             >
               <option value="ALL">Semua Tipe Kegiatan</option>
               <option value="REKAM_KERJA">Rekam Kerja</option>
@@ -187,7 +187,7 @@ export function ActivityListManager({
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             >
               <option value="ALL">Semua Kategori</option>
               {categories.map((c) => (
@@ -203,7 +203,7 @@ export function ActivityListManager({
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             >
               <option value="ALL">Semua Status</option>
               <option value="PUBLISHED">Published (Tayang)</option>
@@ -227,7 +227,7 @@ export function ActivityListManager({
                 setCategoryFilter('ALL');
                 setStatusFilter('ALL');
               }}
-              className="text-neutral-700 dark:text-neutral-300 underline font-semibold hover:opacity-80"
+              className="text-[#AF191A] underline font-semibold hover:opacity-80"
             >
               Reset Filter
             </button>
@@ -236,7 +236,7 @@ export function ActivityListManager({
       </div>
 
       {/* Activities Table */}
-      <div className="border border-neutral-200 dark:border-neutral-800 rounded-xl bg-white dark:bg-neutral-900 overflow-hidden shadow-sm">
+      <div className="border border-neutral-200 dark:border-neutral-800 rounded-xl bg-white dark:bg-[#191919] overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs text-neutral-600 dark:text-neutral-400">
             <thead className="bg-neutral-50 dark:bg-neutral-800/50 text-neutral-900 dark:text-neutral-100 font-semibold border-b border-neutral-200 dark:border-neutral-800">
@@ -306,9 +306,9 @@ export function ActivityListManager({
                         title="Klik untuk mengubah status"
                         className={`px-2 py-0.5 text-[10px] font-semibold rounded cursor-pointer transition-opacity ${
                           act.status === 'PUBLISHED'
-                            ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
+                            ? 'bg-[#FFCC00]/20 text-[#191919] dark:text-[#FFCC00]'
                             : act.status === 'DRAFT'
-                            ? 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
+                            ? 'bg-neutral-200 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300'
                             : 'bg-neutral-100 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-400'
                         }`}
                       >
@@ -324,7 +324,7 @@ export function ActivityListManager({
                         disabled={isPending}
                         className={`text-sm transition-opacity ${
                           act.featured
-                            ? 'text-amber-500 hover:opacity-80'
+                            ? 'text-[#FFCC00] hover:opacity-80'
                             : 'text-neutral-300 dark:text-neutral-700 hover:text-neutral-400'
                         }`}
                         title={act.featured ? 'Unggulan (Aktif)' : 'Bukan Unggulan'}
@@ -337,7 +337,7 @@ export function ActivityListManager({
                     <td className="px-4 py-3 text-right space-x-2">
                       <Link
                         href={`/admin/rekam-kerja/${act.id}/edit`}
-                        className="text-neutral-800 dark:text-neutral-200 hover:underline font-semibold"
+                        className="text-neutral-800 dark:text-neutral-200 hover:text-[#AF191A] font-semibold"
                       >
                         Sunting
                       </Link>
@@ -345,7 +345,7 @@ export function ActivityListManager({
                         type="button"
                         onClick={() => handleDelete(act.id, act.title)}
                         disabled={isPending}
-                        className="text-rose-600 dark:text-rose-400 hover:underline font-semibold"
+                        className="text-[#AF191A] hover:underline font-semibold"
                       >
                         Hapus
                       </button>

@@ -56,13 +56,13 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
   const getTypeBadge = (type: ActivityType) => {
     switch (type) {
       case 'REKAM_KERJA':
-        return 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800';
+        return 'bg-[#AF191A]/10 text-[#AF191A] border border-[#AF191A]/20';
       case 'PROGRAM':
-        return 'bg-blue-50 text-blue-800 dark:bg-blue-950 dark:text-blue-300 border-blue-200 dark:border-blue-800';
+        return 'bg-[#191919]/10 text-[#191919] dark:bg-white/10 dark:text-white border border-[#191919]/20';
       case 'KEGIATAN':
-        return 'bg-amber-50 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border-amber-200 dark:border-amber-800';
+        return 'bg-[#FFCC00]/20 text-[#191919] dark:text-[#FFCC00] border border-[#FFCC00]/40';
       case 'RESES':
-        return 'bg-purple-50 text-purple-800 dark:bg-purple-950 dark:text-purple-300 border-purple-200 dark:border-purple-800';
+        return 'bg-purple-50 text-purple-900 dark:bg-purple-950 dark:text-purple-300 border border-purple-200';
     }
   };
 
@@ -91,38 +91,39 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
   const embedUrl = getEmbedUrl(activity.video_url);
 
   return (
-    <div className="min-h-screen flex flex-col bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-[#191919] text-[#191919] dark:text-white">
       {/* Public Header */}
-      <header className="sticky top-0 z-50 bg-white/80 dark:bg-neutral-900/80 backdrop-blur border-b border-neutral-200 dark:border-neutral-800">
+      <header className="sticky top-0 z-50 bg-white/95 dark:bg-[#191919]/95 backdrop-blur border-b border-neutral-200 dark:border-[#2A2A2A]">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="font-bold text-base tracking-tight text-neutral-900 dark:text-neutral-100">
+          <Link href="/" className="font-bold text-base tracking-tight text-[#191919] dark:text-white flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#AF191A]"></span>
             {profile?.display_name || 'Rahmat Ichwan Bahtiar'}
           </Link>
           <nav className="flex items-center gap-6 text-sm font-medium">
-            <Link href="/" className="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white transition-colors">
+            <Link href="/" className="text-neutral-600 hover:text-[#AF191A] dark:text-neutral-400 dark:hover:text-[#FFCC00] transition-colors">
               Beranda
             </Link>
-            <Link href="/tentang" className="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white transition-colors">
+            <Link href="/tentang" className="text-neutral-600 hover:text-[#AF191A] dark:text-neutral-400 dark:hover:text-[#FFCC00] transition-colors">
               Tentang
             </Link>
-            <Link href="/rekam-kerja" className="text-neutral-900 dark:text-white font-semibold">
+            <Link href="/rekam-kerja" className="text-[#AF191A] dark:text-[#FFCC00] font-bold">
               Rekam Kerja
             </Link>
-            <Link href="/kabar" className="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white transition-colors">
+            <Link href="/kabar" className="text-neutral-600 hover:text-[#AF191A] dark:text-neutral-400 dark:hover:text-[#FFCC00] transition-colors">
               Kabar
             </Link>
-            <Link href="/galeri" className="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white transition-colors">
+            <Link href="/galeri" className="text-neutral-600 hover:text-[#AF191A] dark:text-neutral-400 dark:hover:text-[#FFCC00] transition-colors">
               Galeri
             </Link>
-            <Link href="/aspirasi" className="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white transition-colors">
+            <Link href="/aspirasi" className="text-neutral-600 hover:text-[#AF191A] dark:text-neutral-400 dark:hover:text-[#FFCC00] transition-colors">
               Aspirasi
             </Link>
-            <Link href="/kontak" className="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white transition-colors">
+            <Link href="/kontak" className="text-neutral-600 hover:text-[#AF191A] dark:text-neutral-400 dark:hover:text-[#FFCC00] transition-colors">
               Kontak
             </Link>
             <Link
               href="/admin"
-              className="ml-2 px-3 py-1.5 text-xs font-semibold rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity"
+              className="ml-2 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-[#191919] text-white hover:bg-[#AF191A] dark:bg-white dark:text-[#191919] dark:hover:bg-[#FFCC00] transition-colors shadow-sm"
             >
               CMS Admin
             </Link>
@@ -134,11 +135,11 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
       <main className="flex-1 max-w-4xl w-full mx-auto px-6 py-12 space-y-8">
         {/* Breadcrumb Navigation */}
         <nav className="flex items-center gap-2 text-xs text-neutral-500">
-          <Link href="/" className="hover:underline">Beranda</Link>
+          <Link href="/" className="hover:text-[#AF191A] transition-colors">Beranda</Link>
           <span>/</span>
-          <Link href="/rekam-kerja" className="hover:underline">Rekam Kerja</Link>
+          <Link href="/rekam-kerja" className="hover:text-[#AF191A] transition-colors">Rekam Kerja</Link>
           <span>/</span>
-          <span className="text-neutral-900 dark:text-neutral-100 truncate max-w-xs">{activity.title}</span>
+          <span className="text-[#AF191A] dark:text-[#FFCC00] font-semibold truncate max-w-xs">{activity.title}</span>
         </nav>
 
         {/* Header Metadata */}
@@ -152,26 +153,26 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
               {activity.type}
             </span>
             {activity.category && (
-              <span className="inline-block px-3 py-1 text-xs font-medium rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300">
+              <span className="inline-block px-3 py-1 text-xs font-medium rounded-lg bg-neutral-100 dark:bg-[#252525] text-neutral-700 dark:text-neutral-300">
                 {activity.category.name}
               </span>
             )}
             {activity.featured && (
-              <span className="inline-block px-3 py-1 text-xs font-semibold rounded-lg bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+              <span className="inline-block px-3 py-1 text-xs font-bold rounded-lg bg-[#FFCC00] text-[#191919]">
                 ★ Program Unggulan
               </span>
             )}
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100 leading-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#191919] dark:text-white leading-tight">
             {activity.title}
           </h1>
         </div>
 
         {/* Accountability Facts Box */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-sm text-xs">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-2xl bg-white dark:bg-[#1C1C1C] border border-neutral-200 dark:border-[#2A2A2A] shadow-sm text-xs">
           <div>
-            <span className="block text-[11px] font-semibold text-neutral-400 uppercase tracking-wider mb-1">
+            <span className="block text-[11px] font-bold text-[#AF191A] uppercase tracking-wider mb-1">
               Tanggal
             </span>
             <span className="font-mono font-bold text-neutral-800 dark:text-neutral-200">
@@ -180,7 +181,7 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
           </div>
 
           <div>
-            <span className="block text-[11px] font-semibold text-neutral-400 uppercase tracking-wider mb-1">
+            <span className="block text-[11px] font-bold text-[#AF191A] uppercase tracking-wider mb-1">
               Wilayah / Kabupaten
             </span>
             <span className="font-semibold text-neutral-800 dark:text-neutral-200">
@@ -189,7 +190,7 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
           </div>
 
           <div>
-            <span className="block text-[11px] font-semibold text-neutral-400 uppercase tracking-wider mb-1">
+            <span className="block text-[11px] font-bold text-[#AF191A] uppercase tracking-wider mb-1">
               Kecamatan / Lokasi
             </span>
             <span className="text-neutral-800 dark:text-neutral-200">
@@ -198,10 +199,10 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
           </div>
 
           <div>
-            <span className="block text-[11px] font-semibold text-neutral-400 uppercase tracking-wider mb-1">
+            <span className="block text-[11px] font-bold text-[#AF191A] uppercase tracking-wider mb-1">
               Penerima Manfaat
             </span>
-            <span className="font-semibold text-emerald-700 dark:text-emerald-300">
+            <span className="font-bold text-[#AF191A] dark:text-[#FFCC00]">
               {activity.beneficiaries > 0 ? `${activity.beneficiaries.toLocaleString('id-ID')} orang/kelompok` : 'Masyarakat Umum'}
             </span>
           </div>
@@ -209,29 +210,29 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
 
         {/* Lead Summary */}
         {activity.summary && (
-          <div className="p-5 rounded-2xl bg-neutral-100/80 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-800 text-sm sm:text-base font-medium text-neutral-800 dark:text-neutral-200 leading-relaxed italic">
+          <div className="p-5 rounded-2xl bg-[#AF191A]/5 border-l-4 border-l-[#AF191A] border-y border-r border-neutral-200 dark:border-[#2A2A2A] text-sm sm:text-base font-medium text-neutral-800 dark:text-neutral-200 leading-relaxed italic">
             &ldquo;{activity.summary}&rdquo;
           </div>
         )}
 
         {/* Documentation Photo / Cover */}
         {activity.cover_image_url && (
-          <div className="rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-sm">
+          <div className="rounded-2xl overflow-hidden border border-neutral-200 dark:border-[#2A2A2A] shadow-sm">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={activity.cover_image_url}
               alt={activity.title}
               className="w-full h-auto max-h-[500px] object-cover"
             />
-            <div className="p-3 bg-neutral-50 dark:bg-neutral-900 text-center text-xs text-neutral-500">
+            <div className="p-3 bg-neutral-50 dark:bg-[#252525] text-center text-xs text-neutral-500">
               Dokumentasi: {activity.title}
             </div>
           </div>
         )}
 
         {/* Full Narrative Description */}
-        <div className="p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-sm space-y-6">
-          <h2 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 border-b border-neutral-100 dark:border-neutral-800 pb-3">
+        <div className="p-8 rounded-2xl bg-white dark:bg-[#1C1C1C] border border-neutral-200 dark:border-[#2A2A2A] shadow-sm space-y-6">
+          <h2 className="text-lg font-bold text-[#191919] dark:text-white border-b border-neutral-100 dark:border-[#2A2A2A] pb-3">
             Laporan &amp; Uraian Kegiatan
           </h2>
           <div className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed whitespace-pre-line space-y-4">
@@ -241,8 +242,8 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
 
         {/* Video Documentation Section */}
         {activity.video_url && (
-          <div className="p-6 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-sm space-y-4">
-            <h2 className="text-base font-bold text-neutral-900 dark:text-neutral-100">
+          <div className="p-6 rounded-2xl bg-white dark:bg-[#1C1C1C] border border-neutral-200 dark:border-[#2A2A2A] shadow-sm space-y-4">
+            <h2 className="text-base font-bold text-[#191919] dark:text-white">
               Dokumentasi Video
             </h2>
             {embedUrl ? (
@@ -261,7 +262,7 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
                   href={activity.video_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-semibold rounded-xl bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-semibold rounded-xl bg-[#AF191A] text-white hover:bg-[#921415] transition-colors shadow-sm"
                 >
                   Tonton Video Dokumentasi di Layanan Eksternal &rarr;
                 </a>
@@ -271,16 +272,16 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
         )}
 
         {/* Bottom Navigation */}
-        <div className="pt-6 border-t border-neutral-200 dark:border-neutral-800 flex justify-between items-center">
+        <div className="pt-6 border-t border-neutral-200 dark:border-[#2A2A2A] flex justify-between items-center">
           <Link
             href="/rekam-kerja"
-            className="inline-flex items-center text-xs font-semibold text-neutral-700 dark:text-neutral-300 hover:underline"
+            className="inline-flex items-center text-xs font-semibold text-[#AF191A] dark:text-[#FFCC00] hover:underline"
           >
             &larr; Kembali ke Semua Rekam Kerja
           </Link>
           <Link
             href="/aspirasi"
-            className="text-xs text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
+            className="text-xs text-neutral-500 hover:text-[#AF191A] dark:hover:text-[#FFCC00] transition-colors"
           >
             Sampaikan Aspirasi Mengenai Program Ini &rarr;
           </Link>
@@ -288,13 +289,13 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
       </main>
 
       {/* Public Footer */}
-      <footer className="border-t border-neutral-200 dark:border-neutral-800 py-8 px-6 bg-white dark:bg-neutral-900 mt-20">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-neutral-500">
+      <footer className="border-t border-neutral-200 dark:border-[#2A2A2A] py-8 px-6 bg-[#191919] text-neutral-400 mt-20">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-center sm:text-left">
           <div>&copy; {new Date().getFullYear()} Rahmat Ichwan Bahtiar. Platform Informasi &amp; Akuntabilitas Publik.</div>
           <div className="flex gap-4">
-            <Link href="/" className="hover:underline">Beranda</Link>
-            <Link href="/tentang" className="hover:underline">Tentang</Link>
-            <Link href="/rekam-kerja" className="hover:underline">Rekam Kerja</Link>
+            <Link href="/" className="hover:text-white transition-colors">Beranda</Link>
+            <Link href="/tentang" className="hover:text-white transition-colors">Tentang</Link>
+            <Link href="/rekam-kerja" className="hover:text-[#FFCC00] transition-colors">Rekam Kerja</Link>
           </div>
         </div>
       </footer>

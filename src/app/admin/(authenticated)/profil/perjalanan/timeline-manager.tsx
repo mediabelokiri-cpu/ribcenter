@@ -55,7 +55,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
             setIsAdding(!isAdding);
             setEditingItem(null);
           }}
-          className="px-4 py-2 text-xs font-semibold rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity"
+          className="px-4 py-2 text-xs font-semibold rounded-lg bg-[#AF191A] text-white hover:bg-[#8e1415] transition-colors"
         >
           {isAdding ? 'Batal Tambah' : '+ Tambah Perjalanan Baru'}
         </button>
@@ -65,9 +65,9 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
       {isAdding && (
         <form
           action={createAction}
-          className="p-6 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 shadow-sm space-y-4"
+          className="p-6 rounded-xl bg-white dark:bg-[#191919] border border-neutral-300 dark:border-neutral-700 shadow-sm space-y-4"
         >
-          <h2 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+          <h2 className="text-sm font-bold text-[#191919] dark:text-white">
             Tambah Tonggak Perjalanan Baru
           </h2>
 
@@ -85,7 +85,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
                 type="text"
                 required
                 placeholder="Contoh: Mengemban Amanah Pengabdian Wilayah"
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
 
@@ -94,7 +94,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
               <select
                 name="category"
                 defaultValue="POLITIK"
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               >
                 {categories.map((c) => (
                   <option key={c} value={c}>
@@ -113,7 +113,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
                 type="number"
                 required
                 placeholder="2024"
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
 
@@ -123,7 +123,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
                 name="year_end"
                 type="number"
                 placeholder="Kosongkan jika masih berjalan"
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
 
@@ -133,7 +133,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
                 name="order_index"
                 type="number"
                 defaultValue={initialItems.length + 1}
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
           </div>
@@ -145,7 +145,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
               rows={3}
               required
               placeholder="Jelaskan peran, capaian, dan dinamika peristiwa secara objektif..."
-              className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+              className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             />
           </div>
 
@@ -166,7 +166,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
               <button
                 type="submit"
                 disabled={isCreatePending}
-                className="px-4 py-1.5 text-xs font-semibold rounded bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 disabled:opacity-50"
+                className="px-4 py-1.5 text-xs font-semibold rounded bg-[#AF191A] hover:bg-[#8e1415] text-white disabled:opacity-50 transition-colors"
               >
                 {isCreatePending ? 'Menyimpan...' : 'Simpan Linimasa'}
               </button>
@@ -179,10 +179,10 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
       {editingItem && (
         <form
           action={updateAction}
-          className="p-6 rounded-xl bg-amber-50/50 dark:bg-amber-950/20 border border-amber-300 dark:border-amber-800 shadow-sm space-y-4"
+          className="p-6 rounded-xl bg-white dark:bg-[#191919] border-2 border-[#AF191A] shadow-sm space-y-4"
         >
           <div className="flex justify-between items-center">
-            <h2 className="text-sm font-bold text-amber-900 dark:text-amber-200">
+            <h2 className="text-sm font-bold text-[#AF191A] dark:text-[#FFCC00]">
               Edit Linimasa: {editingItem.title}
             </h2>
             <button
@@ -210,7 +210,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
                 type="text"
                 required
                 defaultValue={editingItem.title}
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
 
@@ -219,7 +219,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
               <select
                 name="category"
                 defaultValue={editingItem.category}
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               >
                 {categories.map((c) => (
                   <option key={c} value={c}>
@@ -238,7 +238,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
                 type="number"
                 required
                 defaultValue={editingItem.year_start}
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
 
@@ -248,7 +248,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
                 name="year_end"
                 type="number"
                 defaultValue={editingItem.year_end || ''}
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
 
@@ -258,7 +258,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
                 name="order_index"
                 type="number"
                 defaultValue={editingItem.order_index}
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
           </div>
@@ -270,7 +270,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
               rows={3}
               required
               defaultValue={editingItem.description}
-              className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+              className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             />
           </div>
 
@@ -296,7 +296,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
               <button
                 type="submit"
                 disabled={isUpdatePending}
-                className="px-4 py-1.5 text-xs font-semibold rounded bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 disabled:opacity-50"
+                className="px-4 py-1.5 text-xs font-semibold rounded bg-[#AF191A] hover:bg-[#8e1415] text-white disabled:opacity-50 transition-colors"
               >
                 {isUpdatePending ? 'Menyimpan...' : 'Simpan Perubahan'}
               </button>
@@ -306,7 +306,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
       )}
 
       {/* Daftar Linimasa */}
-      <div className="bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
+      <div className="bg-white dark:bg-[#191919] rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
         {initialItems.length === 0 ? (
           <div className="p-8 text-center text-xs text-neutral-500">
             Belum ada linimasa yang ditambahkan.
@@ -320,23 +320,23 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono font-bold text-xs px-2 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800">
+                    <span className="font-mono font-bold text-xs px-2 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-[#191919] dark:text-white">
                       {item.year_start} {item.year_end ? `- ${item.year_end}` : '- Sekarang'}
                     </span>
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300">
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-[#AF191A]/10 text-[#AF191A] dark:bg-[#AF191A]/20 dark:text-[#FFCC00]">
                       {item.category}
                     </span>
                     <span
                       className={`text-[10px] font-semibold px-2 py-0.5 rounded ${
                         item.is_published
-                          ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300'
+                          ? 'bg-[#FFCC00]/20 text-[#191919] dark:text-[#FFCC00]'
                           : 'bg-neutral-200 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300'
                       }`}
                     >
                       {item.is_published ? 'TERBIT' : 'DRAFT'}
                     </span>
                   </div>
-                  <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+                  <h3 className="text-sm font-semibold text-[#191919] dark:text-white">
                     {item.title}
                   </h3>
                   <p className="text-xs text-neutral-500 line-clamp-1">{item.description}</p>
@@ -374,7 +374,7 @@ export function TimelineManager({ initialItems }: { initialItems: TimelineItem[]
                           e.preventDefault();
                         }
                       }}
-                      className="px-2.5 py-1 text-[11px] rounded text-red-600 hover:bg-red-50 dark:hover:bg-red-950/50"
+                      className="px-2.5 py-1 text-[11px] rounded text-[#AF191A] hover:bg-[#AF191A]/10 transition-colors"
                     >
                       Hapus
                     </button>

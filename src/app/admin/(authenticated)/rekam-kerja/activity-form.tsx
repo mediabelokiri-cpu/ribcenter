@@ -99,11 +99,11 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
         <div>
           <Link
             href="/admin/rekam-kerja"
-            className="text-xs text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 flex items-center gap-1 mb-1"
+            className="text-xs text-neutral-500 hover:text-[#AF191A] flex items-center gap-1 mb-1"
           >
             &larr; Kembali ke Daftar Rekam Kerja
           </Link>
-          <h1 className="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
+          <h1 className="text-2xl font-bold tracking-tight text-[#191919] dark:text-white">
             {isEditing ? 'Sunting Rekam Kerja' : 'Tambah Rekam Kerja Baru'}
           </h1>
         </div>
@@ -112,7 +112,7 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
             <Link
               href={`/rekam-kerja/${slug}`}
               target="_blank"
-              className="px-3 py-2 text-xs font-semibold rounded-lg border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
+              className="px-3 py-2 text-xs font-semibold rounded-lg border border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:border-[#AF191A] transition-colors"
             >
               Lihat Halaman Publik &rarr;
             </Link>
@@ -120,7 +120,7 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
           <button
             type="submit"
             disabled={isPending}
-            className="px-5 py-2 text-xs font-semibold rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 disabled:opacity-50 shadow-sm transition-opacity"
+            className="px-5 py-2 text-xs font-semibold rounded-lg bg-[#AF191A] text-white hover:bg-[#8e1415] disabled:opacity-50 shadow-sm transition-colors"
           >
             {isPending ? 'Menyimpan...' : isEditing ? 'Simpan Perubahan' : 'Buat Rekam Kerja'}
           </button>
@@ -140,15 +140,15 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
       )}
 
       {/* SECTION 1: INFORMASI UTAMA */}
-      <div className="p-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm space-y-6">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-neutral-400">
+      <div className="p-6 bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm space-y-6">
+        <h2 className="text-sm font-bold uppercase tracking-wider text-[#AF191A] dark:text-[#FFCC00]">
           1. Informasi Utama
         </h2>
 
         <div className="space-y-4">
           <div>
             <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-1">
-              Judul Kegiatan / Program <span className="text-rose-500">*</span>
+              Judul Kegiatan / Program <span className="text-[#AF191A]">*</span>
             </label>
             <input
               type="text"
@@ -156,7 +156,7 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
               value={title}
               onChange={(e) => handleTitleChange(e.target.value)}
               placeholder="Contoh: Penyaluran Bantuan Bibit Kakao Unggul Kelompok Tani"
-              className="w-full px-3 py-2 text-sm border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-900"
+              className="w-full px-3 py-2 text-sm border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-[#AF191A]"
             />
           </div>
 
@@ -164,12 +164,12 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
             <div className="sm:col-span-2">
               <div className="flex justify-between items-center mb-1">
                 <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300">
-                  Slug URL Publik <span className="text-rose-500">*</span>
+                  Slug URL Publik <span className="text-[#AF191A]">*</span>
                 </label>
                 <button
                   type="button"
                   onClick={handleGenerateSlug}
-                  className="text-[11px] text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-[11px] text-[#AF191A] dark:text-[#FFCC00] hover:underline"
                 >
                   Generate dari Judul
                 </button>
@@ -180,7 +180,7 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
                 value={slug}
                 onChange={(e) => setSlug(e.target.value)}
                 placeholder="penyaluran-bantuan-bibit-kakao"
-                className="w-full px-3 py-2 text-xs font-mono border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-900"
+                className="w-full px-3 py-2 text-xs font-mono border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-[#AF191A]"
               />
               <span className="text-[10px] text-neutral-400 mt-1 block">
                 URL Publik: /rekam-kerja/{slug || '[slug]'}
@@ -189,14 +189,14 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
 
             <div>
               <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-1">
-                Tanggal Pelaksanaan <span className="text-rose-500">*</span>
+                Tanggal Pelaksanaan <span className="text-[#AF191A]">*</span>
               </label>
               <input
                 type="date"
                 required
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+                className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
           </div>
@@ -204,12 +204,12 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-1">
-                Tipe Kegiatan <span className="text-rose-500">*</span>
+                Tipe Kegiatan <span className="text-[#AF191A]">*</span>
               </label>
               <select
                 value={type}
                 onChange={(e) => setType(e.target.value as ActivityType)}
-                className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+                className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:ring-1 focus:ring-[#AF191A]"
               >
                 <option value="REKAM_KERJA">REKAM KERJA (Kerja &amp; Advokasi Nyata)</option>
                 <option value="PROGRAM">PROGRAM (Inisiatif &amp; Penyaluran Bantuan)</option>
@@ -226,7 +226,7 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
                 <Link
                   href="/admin/rekam-kerja/kategori"
                   target="_blank"
-                  className="text-[11px] text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-[11px] text-[#AF191A] dark:text-[#FFCC00] hover:underline"
                 >
                   + Kelola Kategori
                 </Link>
@@ -234,7 +234,7 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
               <select
                 value={categoryId}
                 onChange={(e) => setCategoryId(e.target.value)}
-                className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+                className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:ring-1 focus:ring-[#AF191A]"
               >
                 <option value="">-- Pilih Kategori (Opsional) --</option>
                 {categories.map((c) => (
@@ -249,8 +249,8 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
       </div>
 
       {/* SECTION 2: WILAYAH / LOKASI */}
-      <div className="p-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm space-y-6">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-neutral-400">
+      <div className="p-6 bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm space-y-6">
+        <h2 className="text-sm font-bold uppercase tracking-wider text-[#AF191A] dark:text-[#FFCC00]">
           2. Wilayah &amp; Lokasi
         </h2>
 
@@ -264,7 +264,7 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
               value={regency}
               onChange={(e) => setRegency(e.target.value)}
               placeholder="Contoh: Polewali Mandar"
-              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             />
           </div>
 
@@ -277,7 +277,7 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
               value={district}
               onChange={(e) => setDistrict(e.target.value)}
               placeholder="Contoh: Tinambung"
-              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             />
           </div>
 
@@ -290,15 +290,15 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               placeholder="Contoh: Balai Pertemuan Desa"
-              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             />
           </div>
         </div>
       </div>
 
       {/* SECTION 3: NARASI & PENERIMA MANFAAT */}
-      <div className="p-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm space-y-6">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-neutral-400">
+      <div className="p-6 bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm space-y-6">
+        <h2 className="text-sm font-bold uppercase tracking-wider text-[#AF191A] dark:text-[#FFCC00]">
           3. Deskripsi &amp; Konteks Publik
         </h2>
 
@@ -312,13 +312,13 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
               value={summary}
               onChange={(e) => setSummary(e.target.value)}
               placeholder="1-2 kalimat ikhtisar untuk kartu ringkasan dan preview..."
-              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             />
           </div>
 
           <div>
             <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-1">
-              Deskripsi Lengkap Kegiatan <span className="text-rose-500">*</span>
+              Deskripsi Lengkap Kegiatan <span className="text-[#AF191A]">*</span>
             </label>
             <textarea
               rows={8}
@@ -326,7 +326,7 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Uraian latar belakang, proses advokasi, hasil pencapaian, dan dampak nyata..."
-              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 leading-relaxed font-sans"
+              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 leading-relaxed font-sans focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             />
           </div>
 
@@ -339,7 +339,7 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
               min={0}
               value={beneficiaries}
               onChange={(e) => setBeneficiaries(e.target.value)}
-              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100"
+              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             />
             <span className="text-[10px] text-neutral-400 mt-1 block">
               Isi 0 jika tidak ada data estimasi numerik langsung.
@@ -349,12 +349,12 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
       </div>
 
       {/* SECTION 4: DOKUMENTASI & VIDEO */}
-      <div className="p-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm space-y-6">
+      <div className="p-6 bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm space-y-6">
         <div className="flex justify-between items-center">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-neutral-400">
+          <h2 className="text-sm font-bold uppercase tracking-wider text-[#AF191A] dark:text-[#FFCC00]">
             4. Dokumentasi &amp; Video Eksternal
           </h2>
-          <span className="text-[10px] bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 rounded text-neutral-500">
+          <span className="text-[10px] bg-[#FFCC00]/10 text-[#191919] dark:text-[#FFCC00] border border-[#FFCC00]/30 px-2 py-0.5 rounded font-medium">
             Titik Integrasi Phase 5
           </span>
         </div>
@@ -369,7 +369,7 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
               value={coverImageUrl}
               onChange={(e) => setCoverImageUrl(e.target.value)}
               placeholder="https://images.example.com/dokumentasi.jpg"
-              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 font-mono"
+              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 font-mono focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             />
             <span className="text-[10px] text-neutral-400 mt-1 block">
               Foto dokumentasi utama untuk ditampilkan pada halaman detail.
@@ -385,7 +385,7 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
               value={videoUrl}
               onChange={(e) => setVideoUrl(e.target.value)}
               placeholder="https://www.youtube.com/watch?v=..."
-              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 font-mono"
+              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 font-mono focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             />
             <span className="text-[10px] text-neutral-400 mt-1 block">
               Video eksternal akan disematkan secara responsif.
@@ -395,20 +395,20 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
       </div>
 
       {/* SECTION 5: PUBLIKASI & STATUS */}
-      <div className="p-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm space-y-6">
-        <h2 className="text-sm font-bold uppercase tracking-wider text-neutral-400">
+      <div className="p-6 bg-white dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-sm space-y-6">
+        <h2 className="text-sm font-bold uppercase tracking-wider text-[#AF191A] dark:text-[#FFCC00]">
           5. Status Publikasi &amp; Unggulan
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
           <div>
             <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-1">
-              Status Editorial <span className="text-rose-500">*</span>
+              Status Editorial <span className="text-[#AF191A]">*</span>
             </label>
             <select
               value={status}
               onChange={(e) => setStatus(e.target.value as ContentStatus)}
-              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 font-semibold"
+              className="w-full px-3 py-2 text-xs border border-neutral-300 dark:border-neutral-700 rounded-lg bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 font-semibold focus:ring-1 focus:ring-[#AF191A]"
             >
               <option value="PUBLISHED">PUBLISHED (Diterbitkan untuk Publik)</option>
               <option value="DRAFT">DRAFT (Konsep Internal - Rahasia)</option>
@@ -425,7 +425,7 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
                 type="checkbox"
                 checked={featured}
                 onChange={(e) => setFeatured(e.target.checked)}
-                className="mt-0.5 w-4 h-4 rounded border-neutral-300 dark:border-neutral-700 text-neutral-900 focus:ring-neutral-900"
+                className="mt-0.5 w-4 h-4 rounded border-neutral-300 dark:border-neutral-700 text-[#AF191A] focus:ring-[#AF191A]"
               />
               <div>
                 <span>Tandai Sebagai Rekam Kerja Unggulan (Featured)</span>
@@ -442,14 +442,14 @@ export function ActivityForm({ initialData, categories, isEditing = false }: Act
       <div className="flex justify-end gap-3 pt-4 border-t border-neutral-200 dark:border-neutral-800">
         <Link
           href="/admin/rekam-kerja"
-          className="px-4 py-2 text-xs font-semibold rounded-lg border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800"
+          className="px-4 py-2 text-xs font-semibold rounded-lg border border-neutral-300 dark:border-neutral-700 hover:border-[#AF191A]"
         >
           Batal
         </Link>
         <button
           type="submit"
           disabled={isPending}
-          className="px-6 py-2.5 text-xs font-semibold rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 disabled:opacity-50 shadow-sm transition-opacity"
+          className="px-6 py-2.5 text-xs font-semibold rounded-lg bg-[#AF191A] text-white hover:bg-[#8e1415] disabled:opacity-50 shadow-sm transition-colors"
         >
           {isPending ? 'Menyimpan...' : isEditing ? 'Simpan Perubahan' : 'Buat Rekam Kerja'}
         </button>

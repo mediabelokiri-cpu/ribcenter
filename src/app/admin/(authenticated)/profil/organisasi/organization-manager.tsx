@@ -47,7 +47,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
             setIsAdding(!isAdding);
             setEditingItem(null);
           }}
-          className="px-4 py-2 text-xs font-semibold rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity"
+          className="px-4 py-2 text-xs font-semibold rounded-lg bg-[#AF191A] text-white hover:bg-[#8e1415] transition-colors"
         >
           {isAdding ? 'Batal Tambah' : '+ Tambah Organisasi Baru'}
         </button>
@@ -57,9 +57,9 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
       {isAdding && (
         <form
           action={createAction}
-          className="p-6 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 shadow-sm space-y-4"
+          className="p-6 rounded-xl bg-white dark:bg-[#191919] border border-neutral-300 dark:border-neutral-700 shadow-sm space-y-4"
         >
-          <h2 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+          <h2 className="text-sm font-bold text-[#191919] dark:text-white">
             Tambah Riwayat Organisasi Baru
           </h2>
 
@@ -77,7 +77,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
                 type="text"
                 required
                 placeholder="Contoh: Himpunan Mahasiswa / Dewan Pimpinan"
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
 
@@ -88,7 +88,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
                 type="text"
                 required
                 placeholder="Contoh: Ketua / Koordinator Wilayah"
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
           </div>
@@ -101,7 +101,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
                 type="text"
                 required
                 placeholder="Contoh: 2018"
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
 
@@ -111,7 +111,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
                 name="period_end"
                 type="text"
                 placeholder="Contoh: 2022 atau Sekarang"
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
 
@@ -121,7 +121,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
                 name="order_index"
                 type="number"
                 defaultValue={initialItems.length + 1}
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
           </div>
@@ -132,7 +132,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
               name="description"
               rows={3}
               placeholder="Deskripsi peran, tanggung jawab, dan program yang dipimpin..."
-              className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+              className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             />
           </div>
 
@@ -153,7 +153,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
               <button
                 type="submit"
                 disabled={isCreatePending}
-                className="px-4 py-1.5 text-xs font-semibold rounded bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 disabled:opacity-50"
+                className="px-4 py-1.5 text-xs font-semibold rounded bg-[#AF191A] hover:bg-[#8e1415] text-white disabled:opacity-50 transition-colors"
               >
                 {isCreatePending ? 'Menyimpan...' : 'Simpan Organisasi'}
               </button>
@@ -166,10 +166,10 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
       {editingItem && (
         <form
           action={updateAction}
-          className="p-6 rounded-xl bg-amber-50/50 dark:bg-amber-950/20 border border-amber-300 dark:border-amber-800 shadow-sm space-y-4"
+          className="p-6 rounded-xl bg-white dark:bg-[#191919] border-2 border-[#AF191A] shadow-sm space-y-4"
         >
           <div className="flex justify-between items-center">
-            <h2 className="text-sm font-bold text-amber-900 dark:text-amber-200">
+            <h2 className="text-sm font-bold text-[#AF191A] dark:text-[#FFCC00]">
               Edit Organisasi: {editingItem.organization_name}
             </h2>
             <button
@@ -197,7 +197,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
                 type="text"
                 required
                 defaultValue={editingItem.organization_name}
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
 
@@ -208,7 +208,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
                 type="text"
                 required
                 defaultValue={editingItem.role}
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
           </div>
@@ -221,7 +221,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
                 type="text"
                 required
                 defaultValue={editingItem.period_start}
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
 
@@ -231,7 +231,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
                 name="period_end"
                 type="text"
                 defaultValue={editingItem.period_end || ''}
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
 
@@ -241,7 +241,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
                 name="order_index"
                 type="number"
                 defaultValue={editingItem.order_index}
-                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+                className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
               />
             </div>
           </div>
@@ -252,7 +252,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
               name="description"
               rows={3}
               defaultValue={editingItem.description || ''}
-              className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800"
+              className="w-full px-3 py-2 text-xs rounded border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
             />
           </div>
 
@@ -278,7 +278,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
               <button
                 type="submit"
                 disabled={isUpdatePending}
-                className="px-4 py-1.5 text-xs font-semibold rounded bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 disabled:opacity-50"
+                className="px-4 py-1.5 text-xs font-semibold rounded bg-[#AF191A] hover:bg-[#8e1415] text-white disabled:opacity-50 transition-colors"
               >
                 {isUpdatePending ? 'Menyimpan...' : 'Simpan Perubahan'}
               </button>
@@ -288,7 +288,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
       )}
 
       {/* Daftar Organisasi */}
-      <div className="bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
+      <div className="bg-white dark:bg-[#191919] rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
         {initialItems.length === 0 ? (
           <div className="p-8 text-center text-xs text-neutral-500">
             Belum ada rekam organisasi yang ditambahkan.
@@ -302,20 +302,20 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono font-bold text-xs px-2 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800">
+                    <span className="font-mono font-bold text-xs px-2 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-[#191919] dark:text-white">
                       {item.period_start} {item.period_end ? `- ${item.period_end}` : ''}
                     </span>
                     <span
                       className={`text-[10px] font-semibold px-2 py-0.5 rounded ${
                         item.is_published
-                          ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300'
+                          ? 'bg-[#FFCC00]/20 text-[#191919] dark:text-[#FFCC00]'
                           : 'bg-neutral-200 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300'
                       }`}
                     >
                       {item.is_published ? 'TERBIT' : 'DRAFT'}
                     </span>
                   </div>
-                  <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+                  <h3 className="text-sm font-semibold text-[#191919] dark:text-white">
                     {item.organization_name}
                   </h3>
                   <p className="text-xs font-medium text-neutral-600 dark:text-neutral-300">
@@ -358,7 +358,7 @@ export function OrganizationManager({ initialItems }: { initialItems: Organizati
                           e.preventDefault();
                         }
                       }}
-                      className="px-2.5 py-1 text-[11px] rounded text-red-600 hover:bg-red-50 dark:hover:bg-red-950/50"
+                      className="px-2.5 py-1 text-[11px] rounded text-[#AF191A] hover:bg-[#AF191A]/10 transition-colors"
                     >
                       Hapus
                     </button>

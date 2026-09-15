@@ -24,8 +24,8 @@ export function HomepageSectionManager({ initialSections }: { initialSections: H
   return (
     <div className="space-y-6">
       {/* Alert Banner */}
-      <div className="p-4 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 text-xs text-blue-900 dark:text-blue-300">
-        <p className="font-semibold">Prinsip: Fixed System, Flexible Content</p>
+      <div className="p-4 rounded-xl bg-neutral-50 dark:bg-[#191919] border border-neutral-200 dark:border-neutral-800 text-xs text-[#191919] dark:text-neutral-300">
+        <p className="font-semibold text-[#AF191A] dark:text-[#FFCC00]">Prinsip: Fixed System, Flexible Content</p>
         <p className="mt-0.5 opacity-90">
           Admin mengatur urutan, status tayang, dan isi narasi setiap bagian beranda. Tata letak kode tetap stabil dan terstruktur tanpa risiko perusakan tampilan situs.
         </p>
@@ -45,13 +45,13 @@ export function HomepageSectionManager({ initialSections }: { initialSections: H
 
       {/* Edit Modal / Drawer */}
       {editingSection && (
-        <div className="p-6 rounded-xl bg-amber-50/50 dark:bg-amber-950/20 border border-amber-300 dark:border-amber-800 shadow-sm space-y-4">
+        <div className="p-6 rounded-xl bg-white dark:bg-[#191919] border-2 border-[#AF191A] shadow-sm space-y-4">
           <div className="flex justify-between items-center">
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-amber-800 dark:text-amber-300">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-[#AF191A] dark:text-[#FFCC00] font-bold">
                 Key: {editingSection.section_key}
               </span>
-              <h2 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+              <h2 className="text-sm font-bold text-[#191919] dark:text-white">
                 Konfigurasi Konten: {editingSection.title}
               </h2>
             </div>
@@ -103,7 +103,7 @@ export function HomepageSectionManager({ initialSections }: { initialSections: H
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="px-4 py-1.5 text-xs font-semibold rounded bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 disabled:opacity-50"
+                  className="px-4 py-1.5 text-xs font-semibold rounded bg-[#AF191A] hover:bg-[#8e1415] text-white disabled:opacity-50 transition-colors"
                 >
                   {isPending ? 'Menyimpan...' : 'Simpan Konfigurasi'}
                 </button>
@@ -114,7 +114,7 @@ export function HomepageSectionManager({ initialSections }: { initialSections: H
       )}
 
       {/* Daftar Section */}
-      <div className="bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
+      <div className="bg-white dark:bg-[#191919] rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden">
         <div className="divide-y divide-neutral-100 dark:divide-neutral-800">
           {initialSections.map((sec, index) => (
             <div
@@ -122,12 +122,12 @@ export function HomepageSectionManager({ initialSections }: { initialSections: H
               className="p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 hover:bg-neutral-50/50 dark:hover:bg-neutral-800/30 transition-colors"
             >
               <div className="flex items-center gap-3">
-                <div className="w-7 h-7 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-xs font-bold font-mono">
+                <div className="w-7 h-7 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-xs font-bold font-mono text-[#191919] dark:text-white">
                   {sec.order_index}
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">
+                    <h3 className="text-sm font-semibold text-[#191919] dark:text-white">
                       {sec.title}
                     </h3>
                     <span className="text-[10px] font-mono text-neutral-400">
@@ -136,7 +136,7 @@ export function HomepageSectionManager({ initialSections }: { initialSections: H
                     <span
                       className={`text-[10px] font-semibold px-2 py-0.5 rounded ${
                         sec.is_active
-                          ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300'
+                          ? 'bg-[#FFCC00]/20 text-[#191919] dark:text-[#FFCC00]'
                           : 'bg-neutral-200 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300'
                       }`}
                     >
@@ -157,7 +157,7 @@ export function HomepageSectionManager({ initialSections }: { initialSections: H
                   <button
                     type="submit"
                     disabled={index === 0}
-                    className="px-2 py-1 text-xs rounded border border-neutral-300 dark:border-neutral-700 disabled:opacity-30"
+                    className="px-2 py-1 text-xs rounded border border-neutral-300 dark:border-neutral-700 hover:border-[#AF191A] disabled:opacity-30"
                     title="Geser Naik"
                   >
                     &uarr;
@@ -170,7 +170,7 @@ export function HomepageSectionManager({ initialSections }: { initialSections: H
                   <button
                     type="submit"
                     disabled={index === initialSections.length - 1}
-                    className="px-2 py-1 text-xs rounded border border-neutral-300 dark:border-neutral-700 disabled:opacity-30"
+                    className="px-2 py-1 text-xs rounded border border-neutral-300 dark:border-neutral-700 hover:border-[#AF191A] disabled:opacity-30"
                     title="Geser Turun"
                   >
                     &darr;
@@ -193,7 +193,7 @@ export function HomepageSectionManager({ initialSections }: { initialSections: H
                 <button
                   type="button"
                   onClick={() => setEditingSection(sec)}
-                  className="px-3 py-1 text-[11px] font-semibold rounded bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90"
+                  className="px-3 py-1 text-[11px] font-semibold rounded bg-[#AF191A] text-white hover:bg-[#8e1415] transition-colors"
                 >
                   Atur Konten
                 </button>
