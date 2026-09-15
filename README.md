@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rahmat Ichwan Bahtiar Website
 
-## Getting Started
+## Purpose
+**Personal Public Information & Accountability Platform** for Rahmat Ichwan Bahtiar.  
+Built under the core principle: **Flexible Content, Fixed System** (Developer controls the application architecture; Admin manages content via CMS; Website displays the data).
 
-First, run the development server:
+---
 
+## Technology Stack
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Language:** [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Database & Backend Services:** [Supabase](https://supabase.com/) & [PostgreSQL](https://www.postgresql.org/)
+- **Deployment Target:** [Vercel](https://vercel.com/)
+- **Version Control:** [Git](https://git-scm.com/) & [GitHub](https://github.com/)
+
+---
+
+## Local Setup
+
+### 1. Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Configure Environment Variables
+Copy the template configuration file:
+```bash
+cp .env.example .env.local
+```
+Fill in the values in `.env.local` according to your local or Supabase development project.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Run Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) with your browser to view the application.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Run Validation
+```bash
+# Type checking
+npm run typecheck
 
-## Learn More
+# Linting
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 5. Build Project
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Environment Variables
 
-## Deploy on Vercel
+| Variable Name | Environment | Description |
+| :--- | :--- | :--- |
+| `NEXT_PUBLIC_APP_URL` | Public / Client | Base application URL (default: `http://localhost:3000`). |
+| `NEXT_PUBLIC_SUPABASE_URL` | Public / Client | Supabase Project URL. |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Public / Client | Supabase Anonymous Public API key (client-safe). |
+| `SUPABASE_SERVICE_ROLE_KEY` | Private / Server Only | Supabase Service Role Key with administrative privileges (never exposed to client). |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Architecture
+
+```text
+src/
+├── app/                    # Next.js App Router routes, layouts, and error boundaries
+│   ├── (public)/           # Public-facing page route placeholders
+│   ├── admin/              # Future Admin CMS route placeholder
+│   ├── error.tsx           # Route segment error boundary
+│   ├── global-error.tsx    # Root layout error boundary
+│   ├── layout.tsx          # Root HTML/Body layout shell
+│   ├── not-found.tsx       # Custom 404 handler
+│   └── page.tsx            # Foundation verification homepage
+├── components/
+│   ├── ui/                 # Reusable primitive UI components
+│   └── layout/             # Shared layout shell components
+├── lib/
+│   ├── env.ts              # Safe environment variable getter and validator
+│   ├── utils.ts            # Common utility functions (e.g. cn)
+│   └── supabase/           # Supabase SSR client factories (browser, server, middleware)
+├── services/               # Future domain data services interfacing with Supabase
+└── types/
+    ├── index.ts            # Common domain and application types
+    └── database.ts         # Database entity schema blueprint (site_settings, articles, etc.)
+```
