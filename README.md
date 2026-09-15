@@ -63,6 +63,14 @@ npm run build
 
 ---
 
+## Database Migrations & CMS Foundation
+- **Migrations:** Reproducible SQL migrations located in `supabase/migrations/` (`00001_initial_schema.sql`, `00002_row_level_security.sql`).
+- **Seed Data:** Development test data with explicit dummy labels in `supabase/seed.sql`.
+- **Admin CMS:** Protected route `/admin` (accessible after authenticating via `/admin/login`).
+- **Full Architecture Documentation:** See [docs/DATABASE_AND_CMS.md](docs/DATABASE_AND_CMS.md).
+
+---
+
 ## Project Architecture
 
 ```text
