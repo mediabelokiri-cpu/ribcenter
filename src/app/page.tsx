@@ -79,41 +79,42 @@ export default async function HomePage() {
             return (
               <section
                 key={sec.id}
-                className="relative overflow-hidden bg-neutral-950 border-b border-neutral-800 min-h-[500px] md:min-h-[540px] flex items-end"
+                className="relative overflow-hidden bg-neutral-900 border-b border-neutral-700 min-h-[480px] md:min-h-[520px] flex items-end"
               >
-                {/* Background Image with Dark Atmospheric Overlay */}
+                {/* Background Image with Light/Clear Atmospheric Overlay */}
                 <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{ backgroundImage: "url('/hero-bg.webp')" }}
                 >
-                  <div className="absolute inset-0 bg-black/60 md:bg-black/50" />
-                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/90 via-black/55 to-black/75" />
+                  {/* Gentle gradient overlay so background people/village photo is clearly visible */}
+                  <div className="absolute inset-0 bg-black/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/55 via-black/20 to-black/35" />
                 </div>
 
                 {/* Foreground Container */}
                 <div className="relative z-10 max-w-6xl w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-end">
-                  {/* Left Column: Cutout Portrait pinned to the bottom */}
-                  <div className="md:col-span-5 flex justify-center md:justify-start items-end pt-8 md:pt-0">
+                  {/* Left Column: New Cutout Portrait pinned to the bottom */}
+                  <div className="md:col-span-5 flex justify-center md:justify-start items-end pt-6 md:pt-0">
                     <img
-                      src="/rahmat-ichwan-bahtiar-hero.webp"
+                      src="/rahmat-ichwan-bahtiar-hero.png"
                       alt={profile?.name || 'Rahmat Ichwan Bahtiar, S.M'}
-                      className="h-[360px] sm:h-[440px] md:h-[490px] lg:h-[530px] w-auto object-contain object-bottom drop-shadow-2xl"
+                      className="h-[320px] sm:h-[400px] md:h-[450px] lg:h-[480px] w-auto object-contain object-bottom drop-shadow-2xl"
                     />
                   </div>
 
                   {/* Right Column: Narrative, Big Yellow Heading, and Dual CTAs */}
                   <div className="md:col-span-7 flex flex-col justify-center py-10 md:py-16 space-y-4 md:space-y-5 text-center md:text-left">
                     <div>
-                      <span className="inline-block px-3 py-1 text-[11px] sm:text-xs font-bold tracking-wider uppercase rounded-md bg-[#AF191A] text-white shadow-xs">
+                      <span className="inline-block px-3 py-1 text-[11px] sm:text-xs font-bold tracking-wider uppercase rounded-md bg-[#AF191A] text-white shadow-sm">
                         KANAL ASPIRASI
                       </span>
                     </div>
 
-                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#FFCC00] leading-tight">
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#FFCC00] leading-tight drop-shadow-md">
                       {content.headline || 'Rahmat Ichwan Bahtiar, S.M'}
                     </h1>
 
-                    <p className="text-sm sm:text-base text-white/90 max-w-xl mx-auto md:mx-0 leading-relaxed font-normal">
+                    <p className="text-sm sm:text-base text-white max-w-xl mx-auto md:mx-0 leading-relaxed font-medium drop-shadow-sm">
                       {content.subheadline ||
                         'Keterbukaan rekam kerja, publikasi gagasan, dan saluran aspirasi masyarakat Rahmat Ichwan Bahtiar.'}
                     </p>
