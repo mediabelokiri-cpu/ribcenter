@@ -2,7 +2,7 @@ import { PublicHeader } from '@/components/layout/public-header';
 import { PublicFooter } from '@/components/layout/public-footer';
 
 export const metadata = {
-  title: 'Syarat & Ketentuan - KAWAN RIB (Rahmat Ichwan Bahtiar)',
+  title: 'Syarat & Ketentuan - RIB CENTER (Rahmat Ichwan Bahtiar)',
   description:
     'Syarat dan ketentuan penggunaan platform keterbukaan informasi publik dan etika kanal aspirasi Rahmat Ichwan Bahtiar.',
 };
@@ -31,7 +31,7 @@ export default function SyaratKetentuanPage() {
           <section className="space-y-2">
             <h2 className="text-base font-bold text-[#191919]">1. Ketentuan Umum</h2>
             <p>
-              Dengan mengakses dan menggunakan situs web <strong>KAWAN RIB (Platform Informasi &amp; Akuntabilitas Publik Rahmat Ichwan Bahtiar)</strong>, Anda menyatakan telah membaca, memahami, dan menyetujui untuk terikat dengan seluruh syarat dan ketentuan yang tercantum di halaman ini.
+              Dengan mengakses dan menggunakan situs web <strong>RIB CENTER (Platform Informasi &amp; Akuntabilitas Publik Rahmat Ichwan Bahtiar)</strong>, Anda menyatakan telah membaca, memahami, dan menyetujui untuk terikat dengan seluruh syarat dan ketentuan yang tercantum di halaman ini.
             </p>
           </section>
 
@@ -41,7 +41,7 @@ export default function SyaratKetentuanPage() {
               Seluruh materi informasi, dokumentasi kegiatan, data rekam kerja, dan artikel gagasan kebijakan yang dipublikasikan di situs ini ditujukan untuk edukasi publik dan keterbukaan informasi. Pengutipan atau penyebarluasan konten diperkenankan dengan syarat:
             </p>
             <ul className="list-disc pl-5 space-y-1 text-neutral-600">
-              <li>Menyebutkan sumber rujukan secara jelas (misal: <em>Sumber: KAWAN RIB — Rahmat Ichwan Bahtiar</em>).</li>
+              <li>Menyebutkan sumber rujukan secara jelas (misal: <em>Sumber: RIB CENTER — Rahmat Ichwan Bahtiar</em>).</li>
               <li>Tidak mengubah substansi atau memotong konteks informasi yang dapat menimbulkan disinformasi atau fitnah.</li>
               <li>Tidak memanfaatkan materi visual/foto untuk kepentingan komersial tanpa izin tertulis.</li>
             </ul>

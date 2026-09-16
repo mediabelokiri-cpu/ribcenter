@@ -1,6 +1,7 @@
 'use server';
 
 import { updateProfile } from '@/services/profile';
+import { uploadMediaFile } from '@/services/storage';
 import { requireAdmin } from '@/lib/auth';
 import { revalidatePath } from 'next/cache';
 
@@ -25,6 +26,18 @@ export async function saveProfileAction(
   const mission = (formData.get('mission') as string)?.trim();
   const isPublished = formData.get('is_published') === 'on';
 
+  // Handle Photo: either uploaded file or text URL
+  let photoUrl = (formData.get('photo_url') as string)?.trim() || null;
+  const photoFile = formData.get('photo_file') as File | null;
+
+  if (photoFile && photoFile instanceof File && photoFile.size > 0) {
+    const uploadRes = await uploadMediaFile(photoFile);
+    if (!uploadRes.success || !uploadRes.fileUrl) {
+      return { error: uploadRes.error || 'Gagal mengunggah foto profil.' };
+    }
+    photoUrl = uploadRes.fileUrl;
+  }
+
   // Education JSON parsing
   const educationRaw = formData.get('education') as string;
   let education = [];
@@ -45,6 +58,7 @@ export async function saveProfileAction(
     name,
     display_name: displayName,
     title,
+    photo_url: photoUrl,
     biography,
     vision,
     mission,

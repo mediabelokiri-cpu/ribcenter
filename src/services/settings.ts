@@ -32,7 +32,7 @@ const memorySettings: SiteSetting[] = [
     id: '00000000-0000-0000-0000-000000000001',
     key: 'general',
     value: {
-      site_name: 'KAWAN RIB',
+      site_name: 'RIB CENTER',
       site_tagline: 'Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar',
       description:
         'Platform resmi transparansi rekam kerja, publikasi gagasan, dan saluran aspirasi masyarakat Rahmat Ichwan Bahtiar.',
@@ -202,7 +202,7 @@ export async function getGeneralSettings(): Promise<GeneralSettings> {
   const val = (setting?.value as Record<string, unknown>) || {};
 
   return {
-    site_name: (val.site_name as string) || 'KAWAN RIB',
+    site_name: (val.site_name as string) || 'RIB CENTER',
     site_tagline:
       (val.site_tagline as string) ||
       'Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar',
@@ -214,9 +214,9 @@ export async function getGeneralSettings(): Promise<GeneralSettings> {
 
 /**
  * Formats an Indonesian/international phone number into a direct WhatsApp click-to-chat URL.
- * Example: '081155667788' -> 'https://wa.me/6281155667788?text=Halo%20Admin%20KAWAN%20RIB'
+ * Example: '081155667788' -> 'https://wa.me/6281155667788?text=Halo%20Admin%20RIB%20CENTER'
  */
-export function formatWhatsAppUrl(rawPhone: string, message = 'Halo Admin KAWAN RIB, saya ingin menyampaikan pesan koordinasi.'): string {
+export function formatWhatsAppUrl(rawPhone: string, message = 'Halo Admin RIB CENTER, saya ingin menyampaikan pesan koordinasi.'): string {
   if (!rawPhone) return '';
 
   // Clean non-digits

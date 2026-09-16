@@ -351,7 +351,7 @@ export function SettingsManager({
                 name="site_name"
                 defaultValue={initialGeneral.site_name}
                 required
-                placeholder="KAWAN RIB"
+                placeholder="RIB CENTER"
                 className="w-full p-2.5 rounded-lg border border-neutral-300 text-xs focus:ring-1 focus:ring-[#AF191A] focus:outline-hidden"
               />
             </div>

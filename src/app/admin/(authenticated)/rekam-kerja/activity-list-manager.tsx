@@ -262,13 +262,31 @@ export function ActivityListManager({
               ) : (
                 filteredActivities.map((act) => (
                   <tr key={act.id} className="hover:bg-neutral-50/70">
-                    {/* Title and summary */}
+                    {/* Title and summary with Cover Thumbnail */}
                     <td className="px-4 py-3">
-                      <div className="font-semibold text-neutral-900 line-clamp-1">
-                        {act.title}
-                      </div>
-                      <div className="text-[11px] text-neutral-400 font-mono line-clamp-1">
-                        /{act.slug}
+                      <div className="flex items-center gap-3">
+                        {act.cover_image_url ? (
+                          <img
+                            src={act.cover_image_url}
+                            alt=""
+                            className="w-12 h-9 object-cover rounded-md border border-neutral-200 shrink-0"
+                          />
+                        ) : (
+                          <div className="w-12 h-9 rounded-md bg-neutral-100 border border-neutral-200 flex items-center justify-center text-[10px] text-neutral-400 shrink-0 font-mono">
+                            🏛️
+                          </div>
+                        )}
+                        <div className="min-w-0">
+                          <Link
+                            href={`/admin/rekam-kerja/${act.id}/edit`}
+                            className="font-semibold text-neutral-900 hover:text-[#AF191A] line-clamp-1 block transition-colors"
+                          >
+                            {act.title}
+                          </Link>
+                          <div className="text-[11px] text-neutral-400 font-mono line-clamp-1">
+                            /{act.slug}
+                          </div>
+                        </div>
                       </div>
                     </td>
 

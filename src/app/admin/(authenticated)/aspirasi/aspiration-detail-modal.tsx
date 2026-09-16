@@ -118,7 +118,7 @@ export function AspirationDetailModal({
     else if (!clean.startsWith('62') && clean.length > 0) clean = '62' + clean;
 
     const text = encodeURIComponent(
-      `Halo Bapak/Ibu ${aspiration.name}, kami dari tim KAWAN RIB (Rahmat Ichwan Bahtiar) menghubungi Anda terkait aspirasi yang Anda sampaikan perihal: "${aspiration.subject}".`
+      `Halo Bapak/Ibu ${aspiration.name}, kami dari tim RIB CENTER (Rahmat Ichwan Bahtiar) menghubungi Anda terkait aspirasi yang Anda sampaikan perihal: "${aspiration.subject}".`
     );
     return `https://wa.me/${clean}?text=${text}`;
   };

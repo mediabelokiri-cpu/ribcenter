@@ -9,7 +9,7 @@ import {
 } from '@/services/settings';
 
 export const metadata = {
-  title: 'Kontak & Sekretariat Resmi - KAWAN RIB (Rahmat Ichwan Bahtiar)',
+  title: 'Kontak & Sekretariat Resmi - RIB CENTER (Rahmat Ichwan Bahtiar)',
   description:
     'Saluran komunikasi resmi, alamat sekretariat relawan, WhatsApp layanan, dan informasi koordinasi publik Rahmat Ichwan Bahtiar.',
 };
@@ -23,7 +23,7 @@ export default async function KontakPage() {
 
   const waUrl = formatWhatsAppUrl(
     contact.whatsapp,
-    'Halo Tim KAWAN RIB, saya ingin menghubungi sekretariat Rahmat Ichwan Bahtiar.'
+    'Halo Tim RIB CENTER, saya ingin menghubungi sekretariat Rahmat Ichwan Bahtiar.'
   );
 
   return (

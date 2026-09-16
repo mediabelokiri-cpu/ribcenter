@@ -24,14 +24,14 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'KAWAN RIB | Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar',
-    template: '%s | KAWAN RIB',
+    default: 'RIB CENTER | Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar',
+    template: '%s | RIB CENTER',
   },
   description:
     'Platform resmi informasi publik, rekam kerja, transparansi kebijakan daerah, dan kanal partisipasi aspirasi warga bersama Rahmat Ichwan Bahtiar.',
   keywords: [
     'Rahmat Ichwan Bahtiar',
-    'KAWAN RIB',
+    'RIB CENTER',
     'Kalimantan Timur',
     'Rekam Kerja',
     'Akuntabilitas Publik',
@@ -39,8 +39,16 @@ export const metadata: Metadata = {
     'Aspirasi Warga',
   ],
   authors: [{ name: 'Rahmat Ichwan Bahtiar' }],
-  creator: 'Tim Kerja KAWAN RIB',
-  publisher: 'KAWAN RIB',
+  creator: 'Tim Kerja RIB CENTER',
+  publisher: 'RIB CENTER',
+  icons: {
+    icon: [
+      { url: '/icon.png', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    shortcut: '/icon.png',
+    apple: '/icon.png',
+  },
   alternates: {
     canonical: '/',
   },
@@ -48,8 +56,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'id_ID',
     url: siteUrl,
-    siteName: 'KAWAN RIB — Rahmat Ichwan Bahtiar',
-    title: 'KAWAN RIB | Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar',
+    siteName: 'RIB CENTER — Rahmat Ichwan Bahtiar',
+    title: 'RIB CENTER | Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar',
     description:
       'Platform resmi informasi publik, rekam kerja, transparansi kebijakan daerah, dan kanal partisipasi aspirasi warga bersama Rahmat Ichwan Bahtiar.',
     images: [
@@ -57,13 +65,13 @@ export const metadata: Metadata = {
         url: '/rahmat-hero.png',
         width: 1200,
         height: 630,
-        alt: 'Rahmat Ichwan Bahtiar — KAWAN RIB',
+        alt: 'Rahmat Ichwan Bahtiar — RIB CENTER',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'KAWAN RIB | Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar',
+    title: 'RIB CENTER | Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar',
     description:
       'Platform resmi informasi publik, rekam kerja, transparansi kebijakan daerah, dan kanal partisipasi aspirasi warga bersama Rahmat Ichwan Bahtiar.',
     images: ['/rahmat-hero.png'],
@@ -88,7 +96,7 @@ const rootWebsiteJsonLd = {
       '@type': 'WebSite',
       '@id': `${siteUrl}/#website`,
       url: siteUrl,
-      name: 'KAWAN RIB — Rahmat Ichwan Bahtiar',
+      name: 'RIB CENTER — Rahmat Ichwan Bahtiar',
       description:
         'Platform resmi informasi publik, rekam kerja, transparansi kebijakan daerah, dan kanal partisipasi aspirasi warga bersama Rahmat Ichwan Bahtiar.',
       inLanguage: 'id-ID',

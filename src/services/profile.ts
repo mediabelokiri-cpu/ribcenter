@@ -168,6 +168,7 @@ export async function updateProfile(
           mission: data.mission || '',
           education: data.education || [],
           social_links: data.social_links || {},
+          photo_url: data.photo_url || null,
           is_published: data.is_published ?? true,
         })
         .select()

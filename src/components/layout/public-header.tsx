@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface PublicHeaderProps {
@@ -18,21 +19,23 @@ export function PublicHeader({ activeRoute = '/' }: PublicHeaderProps) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[#191919]/95 backdrop-blur border-b border-neutral-800 text-white shadow-md">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200 text-neutral-900 shadow-xs">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Brand Logo Inisial & Nama KAWAN RIB */}
+        {/* Brand: Logo & Logotype (LOGO + RIB CENTER) tanpa Rahmat Ichwan Bahtiar */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-lg bg-[#AF191A] border-2 border-[#FFCC00] flex items-center justify-center text-[#FFCC00] font-mono font-black text-sm shadow-md group-hover:scale-105 transition-transform shrink-0">
-            RIB
+          <div className="relative w-9 h-9 shrink-0 flex items-center justify-center">
+            <Image
+              src="/logo.png"
+              alt="RIB CENTER Logo"
+              width={36}
+              height={36}
+              className="object-contain max-h-9 w-auto group-hover:scale-105 transition-transform"
+              priority
+            />
           </div>
-          <div className="flex flex-col">
-            <span className="font-black text-base sm:text-lg tracking-tight text-white group-hover:text-[#FFCC00] transition-colors leading-none">
-              KAWAN RIB
-            </span>
-            <span className="text-[10px] tracking-wider uppercase text-neutral-400 font-medium mt-1">
-              Rahmat Ichwan Bahtiar
-            </span>
-          </div>
+          <span className="font-black text-lg sm:text-xl tracking-tight text-neutral-900 group-hover:text-[#AF191A] transition-colors leading-none">
+            RIB CENTER
+          </span>
         </Link>
 
         {/* Navigation Links */}
@@ -47,8 +50,8 @@ export function PublicHeader({ activeRoute = '/' }: PublicHeaderProps) {
                 href={link.href}
                 className={`transition-colors py-1 ${
                   isActive
-                    ? 'text-[#FFCC00] font-bold border-b-2 border-[#FFCC00]'
-                    : 'text-neutral-300 hover:text-white'
+                    ? 'text-[#AF191A] font-bold border-b-2 border-[#AF191A]'
+                    : 'text-neutral-600 hover:text-[#AF191A]'
                 }`}
               >
                 {link.label}
@@ -67,7 +70,7 @@ export function PublicHeader({ activeRoute = '/' }: PublicHeaderProps) {
           </Link>
           <Link
             href="/admin"
-            className="px-2.5 py-1.5 text-[11px] font-mono text-neutral-400 hover:text-[#FFCC00] transition-colors"
+            className="px-2.5 py-1.5 text-[11px] font-mono text-neutral-500 hover:text-[#AF191A] transition-colors"
             title="Masuk CMS Admin"
           >
             CMS
@@ -76,7 +79,7 @@ export function PublicHeader({ activeRoute = '/' }: PublicHeaderProps) {
       </div>
 
       {/* Mobile Sub-Navigation Bar */}
-      <div className="md:hidden px-4 py-2 border-t border-neutral-800 bg-[#141414] flex items-center gap-4 overflow-x-auto text-xs whitespace-nowrap scrollbar-none">
+      <div className="md:hidden px-4 py-2 border-t border-neutral-200 bg-neutral-50 flex items-center gap-4 overflow-x-auto text-xs whitespace-nowrap scrollbar-none">
         {navLinks.map((link) => {
           const isActive =
             activeRoute === link.key ||
@@ -87,8 +90,8 @@ export function PublicHeader({ activeRoute = '/' }: PublicHeaderProps) {
               href={link.href}
               className={`py-1 px-1.5 font-medium transition-colors ${
                 isActive
-                  ? 'text-[#FFCC00] font-bold border-b border-[#FFCC00]'
-                  : 'text-neutral-400 hover:text-neutral-200'
+                  ? 'text-[#AF191A] font-bold border-b border-[#AF191A]'
+                  : 'text-neutral-600 hover:text-neutral-900'
               }`}
             >
               {link.label}

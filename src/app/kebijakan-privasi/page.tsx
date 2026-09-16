@@ -2,7 +2,7 @@ import { PublicHeader } from '@/components/layout/public-header';
 import { PublicFooter } from '@/components/layout/public-footer';
 
 export const metadata = {
-  title: 'Kebijakan Privasi - KAWAN RIB (Rahmat Ichwan Bahtiar)',
+  title: 'Kebijakan Privasi - RIB CENTER (Rahmat Ichwan Bahtiar)',
   description:
     'Kebijakan privasi dan komitmen perlindungan kerahasiaan data warga, nomor kontak, serta pengaduan pada platform Rahmat Ichwan Bahtiar.',
 };
@@ -31,7 +31,7 @@ export default function KebijakanPrivasiPage() {
           <section className="space-y-2">
             <h2 className="text-base font-bold text-[#191919]">1. Komitmen Perlindungan Privasi</h2>
             <p>
-              Platform <strong>KAWAN RIB (Rahmat Ichwan Bahtiar)</strong> berkomitmen penuh untuk melindungi privasi dan keamanan data setiap warga negara yang mengakses situs ini serta memanfaatkan kanal partisipasi publik. Kami menyadari bahwa kepercayaan publik adalah pondasi utama akuntabilitas kepemimpinan.
+              Platform <strong>RIB CENTER (Rahmat Ichwan Bahtiar)</strong> berkomitmen penuh untuk melindungi privasi dan keamanan data setiap warga negara yang mengakses situs ini serta memanfaatkan kanal partisipasi publik. Kami menyadari bahwa kepercayaan publik adalah pondasi utama akuntabilitas kepemimpinan.
             </p>
           </section>
 

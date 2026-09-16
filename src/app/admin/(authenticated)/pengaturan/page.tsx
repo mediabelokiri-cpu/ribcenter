@@ -6,7 +6,7 @@ import {
 import { SettingsManager } from './settings-manager';
 
 export const metadata = {
-  title: 'Pengaturan Situs - Admin KAWAN RIB',
+  title: 'Pengaturan Situs - Admin RIB CENTER',
 };
 
 export default async function AdminPengaturanPage() {

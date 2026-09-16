@@ -36,7 +36,20 @@ export async function generateMetadata({ params }: RekamKerjaDetailProps): Promi
       description,
       type: 'article',
       url: `/rekam-kerja/${activity.slug}`,
-      images: activity.cover_image_url ? [{ url: activity.cover_image_url }] : [],
+      images: [
+        {
+          url: activity.cover_image_url || '/logo.png',
+          width: 1200,
+          height: 630,
+          alt: activity.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [activity.cover_image_url || '/logo.png'],
     },
     alternates: {
       canonical: `/rekam-kerja/${activity.slug}`,
@@ -104,10 +117,10 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
     },
     publisher: {
       '@type': 'Organization',
-      name: 'KAWAN RIB',
+      name: 'RIB CENTER',
       logo: {
         '@type': 'ImageObject',
-        url: `${siteUrl}/rahmat-hero.png`,
+        url: `${siteUrl}/logo.png`,
       },
     },
     mainEntityOfPage: {
@@ -119,7 +132,7 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#191919]">
       <StructuredData data={activityJsonLd} />
-      {/* Public Header with Black Background & KAWAN RIB Branding */}
+      {/* Public Header with White Background & RIB CENTER Branding */}
       <PublicHeader activeRoute="/rekam-kerja" />
 
       {/* Main Content */}

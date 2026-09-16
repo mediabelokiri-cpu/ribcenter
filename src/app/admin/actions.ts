@@ -41,7 +41,16 @@ export async function loginAdmin(
       });
 
     if (authError || !authData.user) {
-      return { error: 'Kredensial login tidak valid. Silakan coba lagi.' };
+      const msg = authError?.message;
+      if (msg === 'Invalid login credentials') {
+        return {
+          error:
+            'Kredensial login tidak valid. Pastikan penulisan email dan kata sandi sudah persis sama dengan yang didaftarkan di Supabase.',
+        };
+      }
+      return {
+        error: msg ? `Gagal masuk: ${msg}` : 'Kredensial login tidak valid. Silakan coba lagi.',
+      };
     }
 
     // 2. Verify authorization in admin_users table

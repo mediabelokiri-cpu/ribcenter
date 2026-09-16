@@ -1,8 +1,10 @@
+import type { Metadata } from 'next';
 import { getAllAspirationsForAdmin } from '@/services/aspirations';
 import { AspirasiInboxManager } from './aspirasi-inbox-manager';
 
-export const metadata = {
-  title: 'Kotak Masuk Aspirasi Warga - Admin KAWAN RIB',
+export const metadata: Metadata = {
+  title: 'Kotak Masuk Aspirasi Warga - Admin RIB CENTER',
+  description: 'Kelola aspirasi, saran, dan pengaduan langsung dari warga masyarakat.',
 };
 
 export default async function AdminAspirasiPage() {

@@ -20,7 +20,10 @@ export async function executeServerQuery<T>(
       error: result.error,
       isFallback: false,
     };
-  } catch (err) {
+  } catch (err: unknown) {
+    if (typeof err === 'object' && err !== null && 'digest' in err && (err as { digest?: string }).digest === 'DYNAMIC_SERVER_USAGE') {
+      throw err;
+    }
     console.error('Supabase query exception:', err);
     return { data: null, error: err, isFallback: false };
   }

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Suspense, useActionState } from 'react';
 import { loginAdmin, type ActionState } from '@/app/admin/actions';
 import { useSearchParams } from 'next/navigation';
@@ -81,15 +82,22 @@ export default function AdminLoginPage() {
     <main className="min-h-screen flex items-center justify-center p-6 bg-[#F9FAFB] text-[#191919]">
       <div className="max-w-md w-full p-8 bg-white rounded-2xl shadow-sm border border-neutral-200">
         <div className="mb-6 text-center">
-          <div className="w-12 h-12 rounded-xl bg-[#191919] border-2 border-[#AF191A] text-[#FFCC00] font-mono font-extrabold text-lg flex items-center justify-center mx-auto mb-3">
-            RIB
+          <div className="w-12 h-12 rounded-xl bg-white border border-neutral-200 shadow-xs flex items-center justify-center mx-auto mb-3 p-1">
+            <Image
+              src="/logo.png"
+              alt="RIB CENTER Logo"
+              width={40}
+              height={40}
+              className="object-contain max-h-9 w-auto"
+              priority
+            />
           </div>
           <span className="inline-block px-3 py-0.5 text-xs font-bold tracking-wide uppercase rounded-full bg-[#AF191A]/10 text-[#AF191A] border border-[#AF191A]/20 mb-2">
             Admin CMS
           </span>
           <h1 className="text-2xl font-bold tracking-tight text-[#191919]">Masuk Administrator</h1>
           <p className="text-xs text-neutral-500 mt-1">
-            Khusus pengelola internal situs Rahmat Ichwan Bahtiar.
+            Khusus pengelola internal situs RIB CENTER.
           </p>
         </div>
 

@@ -42,13 +42,20 @@ export async function generateMetadata({ params }: DetailPageProps): Promise<Met
       type: 'article',
       publishedTime: article.published_at || undefined,
       authors: [article.author],
-      images: article.cover_image_url ? [{ url: article.cover_image_url }] : undefined,
+      images: [
+        {
+          url: article.cover_image_url || '/logo.png',
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: article.cover_image_url ? [article.cover_image_url] : undefined,
+      images: [article.cover_image_url || '/logo.png'],
     },
   };
 }
@@ -100,10 +107,10 @@ export default async function ArticleDetailPage({ params }: DetailPageProps) {
     ],
     publisher: {
       '@type': 'Organization',
-      name: 'KAWAN RIB — Rahmat Ichwan Bahtiar',
+      name: 'RIB CENTER — Rahmat Ichwan Bahtiar',
       logo: {
         '@type': 'ImageObject',
-        url: `${siteUrl}/rahmat-hero.png`,
+        url: `${siteUrl}/logo.png`,
       },
     },
     mainEntityOfPage: {
@@ -115,7 +122,7 @@ export default async function ArticleDetailPage({ params }: DetailPageProps) {
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#191919]">
       <StructuredData data={articleJsonLd} />
-      {/* Public Header with Black Background & KAWAN RIB Branding */}
+      {/* Public Header with White Background & RIB CENTER Branding */}
       <PublicHeader activeRoute="/kabar" />
 
       {/* Main Content Area */}

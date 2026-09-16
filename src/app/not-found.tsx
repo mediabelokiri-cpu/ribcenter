@@ -3,7 +3,7 @@ import { PublicHeader } from '@/components/layout/public-header';
 import { PublicFooter } from '@/components/layout/public-footer';
 
 export const metadata = {
-  title: '404 - Halaman Tidak Ditemukan | KAWAN RIB',
+  title: '404 - Halaman Tidak Ditemukan | RIB CENTER',
 };
 
 export default function NotFound() {

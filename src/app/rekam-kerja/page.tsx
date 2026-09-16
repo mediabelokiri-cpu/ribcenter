@@ -120,6 +120,20 @@ export default async function RekamKerjaPage({ searchParams }: RekamKerjaPagePro
                 className="group flex flex-col justify-between p-6 rounded-2xl border border-neutral-200 bg-white hover:border-[#AF191A] transition-all shadow-xs hover:shadow-sm"
               >
                 <div className="space-y-3">
+                  {act.cover_image_url ? (
+                    <div className="aspect-video w-full rounded-xl overflow-hidden bg-neutral-100">
+                      <img
+                        src={act.cover_image_url}
+                        alt={act.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  ) : (
+                    <div className="aspect-video w-full rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-400 font-mono text-xs">
+                      🏛️ Rekam Kerja
+                    </div>
+                  )}
+
                   {/* Badges */}
                   <div className="flex flex-wrap items-center gap-2">
                     <span

@@ -3,7 +3,7 @@ import { PublicFooter } from '@/components/layout/public-footer';
 import { AspirationForm } from './aspiration-form';
 
 export const metadata = {
-  title: 'Kanal Aspirasi Warga - KAWAN RIB (Rahmat Ichwan Bahtiar)',
+  title: 'Kanal Aspirasi Warga - RIB CENTER (Rahmat Ichwan Bahtiar)',
   description:
     'Sampaikan aspirasi, pengaduan, atau usulan pembangunan wilayah secara langsung dan aman kepada Rahmat Ichwan Bahtiar.',
 };

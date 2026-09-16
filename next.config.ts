@@ -28,6 +28,22 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'iwermmgtuafhkfuedbsl.supabase.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
+    ],
+  },
   async headers() {
     return [
       {

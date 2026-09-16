@@ -315,13 +315,31 @@ export function ArticleListManager({
                       </span>
                     </td>
 
-                    {/* Title and Slug */}
+                    {/* Title and Slug with Cover Thumbnail */}
                     <td className="px-4 py-3">
-                      <div className="font-semibold text-[#191919] line-clamp-1">
-                        {art.title}
-                      </div>
-                      <div className="text-[11px] font-mono text-neutral-400 line-clamp-1 mt-0.5">
-                        /{art.slug}
+                      <div className="flex items-center gap-3">
+                        {art.cover_image_url ? (
+                          <img
+                            src={art.cover_image_url}
+                            alt=""
+                            className="w-12 h-9 object-cover rounded-md border border-neutral-200 shrink-0"
+                          />
+                        ) : (
+                          <div className="w-12 h-9 rounded-md bg-neutral-100 border border-neutral-200 flex items-center justify-center text-[10px] text-neutral-400 shrink-0 font-mono">
+                            {art.type === 'BERITA' ? '📰' : '💡'}
+                          </div>
+                        )}
+                        <div className="min-w-0">
+                          <Link
+                            href={`/admin/kabar/${art.id}/edit`}
+                            className="font-semibold text-[#191919] hover:text-[#AF191A] line-clamp-1 block transition-colors"
+                          >
+                            {art.title}
+                          </Link>
+                          <div className="text-[11px] font-mono text-neutral-400 line-clamp-1 mt-0.5">
+                            /{art.slug}
+                          </div>
+                        </div>
                       </div>
                     </td>
 
