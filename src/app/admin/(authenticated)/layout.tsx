@@ -155,27 +155,34 @@ export default async function AdminAuthenticatedLayout({
             </div>
           </div>
 
-          {/* Modul Mendatang (Phase 6+) */}
+          {/* Partisipasi & Pengaturan (Phase 6) */}
           <div>
             <span className="px-3 text-[10px] font-bold text-neutral-400 uppercase tracking-wider block mb-1.5">
-              Modul Mendatang
+              Partisipasi &amp; Pengaturan
             </span>
-            <div className="space-y-1 opacity-60">
-              <div className="px-3 py-1.5 text-neutral-500 cursor-not-allowed flex justify-between items-center">
+            <div className="space-y-1">
+              <Link
+                href="/admin/aspirasi"
+                className="flex items-center justify-between px-3 py-2 font-medium rounded-lg text-neutral-700 hover:bg-neutral-100 hover:text-[#AF191A] transition-colors"
+              >
                 <span>Aspirasi Warga</span>
-                <span className="text-[9px] bg-neutral-100 px-1.5 py-0.5 rounded text-neutral-500 border border-neutral-200">Fase 6</span>
-              </div>
-              <div className="px-3 py-1.5 text-neutral-500 cursor-not-allowed flex justify-between items-center">
-                <span>Pengaturan Situs</span>
-                <span className="text-[9px] bg-neutral-100 px-1.5 py-0.5 rounded text-neutral-500 border border-neutral-200">Fase 6</span>
-              </div>
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#AF191A]/10 text-[#AF191A]">
+                  Inbox
+                </span>
+              </Link>
+              <Link
+                href="/admin/pengaturan"
+                className="flex items-center px-3 py-2 font-medium rounded-lg text-neutral-700 hover:bg-neutral-100 hover:text-[#AF191A] transition-colors"
+              >
+                Pengaturan Situs
+              </Link>
             </div>
           </div>
         </nav>
 
         <div className="p-4 border-t border-neutral-200 bg-neutral-50/70 text-xs text-neutral-500">
-          <span className="block font-semibold text-[#191919]">Fase 5: Pustaka Media &amp; Galeri</span>
-          <span className="text-[11px] text-[#AF191A] font-medium">Reusable Media &amp; Visual Archive</span>
+          <span className="block font-semibold text-[#191919]">Fase 6: Aspirasi &amp; Kontak</span>
+          <span className="text-[11px] text-[#AF191A] font-medium">Public Participation &amp; Settings</span>
         </div>
       </aside>
 
