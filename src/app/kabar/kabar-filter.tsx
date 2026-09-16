@@ -101,6 +101,7 @@ export function KabarFilter({
         <form onSubmit={handleSearchSubmit} className="relative w-full md:w-72">
           <input
             type="text"
+            aria-label="Cari artikel atau topik"
             placeholder="Cari artikel, topik..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -110,6 +111,7 @@ export function KabarFilter({
             <button
               type="button"
               onClick={handleClearSearch}
+              aria-label="Hapus kata kunci pencarian"
               className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-neutral-400 hover:text-neutral-600"
             >
               &times;
@@ -118,6 +120,7 @@ export function KabarFilter({
             <button
               type="submit"
               disabled={isPending}
+              aria-label="Jalankan pencarian"
               className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-neutral-400 hover:text-[#AF191A]"
             >
               🔍

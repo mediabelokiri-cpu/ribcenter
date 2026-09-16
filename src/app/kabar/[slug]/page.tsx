@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { PublicHeader } from '@/components/layout/public-header';
 import { PublicFooter } from '@/components/layout/public-footer';
 import { getArticleBySlug } from '@/services/articles';
+import { StructuredData } from '@/components/seo/structured-data';
 
 export const dynamic = 'force-dynamic';
 
@@ -81,9 +82,39 @@ export default async function ArticleDetailPage({ params }: DetailPageProps) {
   }
 
   const readingTime = calculateReadingTime(article.content);
+  const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': article.type === 'BERITA' ? 'NewsArticle' : 'Article',
+    headline: article.title,
+    description: article.excerpt || article.seo_description || article.title,
+    image: article.cover_image_url ? [article.cover_image_url] : undefined,
+    datePublished: article.published_at || article.created_at,
+    dateModified: article.updated_at || article.published_at || article.created_at,
+    author: [
+      {
+        '@type': 'Person',
+        name: article.author || 'Rahmat Ichwan Bahtiar',
+      },
+    ],
+    publisher: {
+      '@type': 'Organization',
+      name: 'KAWAN RIB — Rahmat Ichwan Bahtiar',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/rahmat-hero.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${siteUrl}/kabar/${article.slug}`,
+    },
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#191919]">
+      <StructuredData data={articleJsonLd} />
       {/* Public Header with Black Background & KAWAN RIB Branding */}
       <PublicHeader activeRoute="/kabar" />
 
@@ -264,7 +295,7 @@ export default async function ArticleDetailPage({ params }: DetailPageProps) {
           <div className="flex items-center gap-3 text-xs text-neutral-500">
             <span>Bagikan artikel ini:</span>
             <Link
-              href={`https://wa.me/?text=${encodeURIComponent(`${article.title} - Baca selengkapnya di: /kabar/${article.slug}`)}`}
+              href={`https://wa.me/?text=${encodeURIComponent(`${article.title} - Baca selengkapnya di: ${siteUrl}/kabar/${article.slug}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1.5 rounded-lg border border-neutral-200 hover:border-emerald-500 hover:text-emerald-700 bg-white transition-colors font-medium"
@@ -272,7 +303,7 @@ export default async function ArticleDetailPage({ params }: DetailPageProps) {
               WhatsApp
             </Link>
             <Link
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(`/kabar/${article.slug}`)}`}
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(`${siteUrl}/kabar/${article.slug}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1.5 rounded-lg border border-neutral-200 hover:border-neutral-900 hover:text-neutral-900 bg-white transition-colors font-medium"

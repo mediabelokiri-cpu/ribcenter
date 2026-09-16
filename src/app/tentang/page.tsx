@@ -1,8 +1,19 @@
+import type { Metadata } from 'next';
 import { PublicHeader } from '@/components/layout/public-header';
 import { PublicFooter } from '@/components/layout/public-footer';
 import { getProfile, getTimeline, getOrganizations } from '@/services/profile';
+import { StructuredData } from '@/components/seo/structured-data';
 
 export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'Profil & Rekam Jejak - Rahmat Ichwan Bahtiar',
+  description:
+    'Mengenal rekam jejak, riwayat pendidikan, perjalanan karier kemasyarakatan, serta visi integritas pelayanan publik Rahmat Ichwan Bahtiar.',
+  alternates: {
+    canonical: '/tentang',
+  },
+};
 
 export default async function TentangPage() {
   const [profile, timeline, organizations] = await Promise.all([
@@ -15,8 +26,25 @@ export default async function TentangPage() {
     ? (profile.education as Array<{ degree: string; institution: string; year: string; field?: string }>)
     : [];
 
+  const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: profile?.name || 'Rahmat Ichwan Bahtiar',
+    jobTitle: profile?.title || 'Tokoh Publik & Pelayan Masyarakat',
+    description: profile?.biography,
+    url: `${siteUrl}/tentang`,
+    image: `${siteUrl}/rahmat-hero.png`,
+    alumniOf: education.map((e) => ({
+      '@type': 'EducationalOrganization',
+      name: e.institution,
+    })),
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#191919]">
+      <StructuredData data={personJsonLd} />
       {/* Public Header */}
       <PublicHeader activeRoute="/tentang" />
 

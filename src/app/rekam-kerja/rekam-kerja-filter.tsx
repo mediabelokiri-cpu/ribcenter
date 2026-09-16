@@ -76,10 +76,12 @@ export function RekamKerjaFilter({
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {/* Category Select */}
         <div>
-          <label className="block text-[11px] font-semibold text-neutral-500 mb-1">
+          <label htmlFor="filter-category" className="block text-[11px] font-semibold text-neutral-500 mb-1">
             Kategori
           </label>
           <select
+            id="filter-category"
+            aria-label="Filter berdasarkan kategori rekam kerja"
             value={currentCategory}
             onChange={(e) => updateParam('category', e.target.value)}
             className="w-full px-3 py-2 text-xs border border-neutral-300 rounded-lg bg-white text-[#191919] focus:outline-none focus:border-[#AF191A]"
@@ -95,10 +97,12 @@ export function RekamKerjaFilter({
 
         {/* Regency Select */}
         <div>
-          <label className="block text-[11px] font-semibold text-neutral-500 mb-1">
+          <label htmlFor="filter-regency" className="block text-[11px] font-semibold text-neutral-500 mb-1">
             Wilayah / Kabupaten
           </label>
           <select
+            id="filter-regency"
+            aria-label="Filter berdasarkan wilayah kabupaten atau kota"
             value={currentRegency}
             onChange={(e) => updateParam('regency', e.target.value)}
             className="w-full px-3 py-2 text-xs border border-neutral-300 rounded-lg bg-white text-[#191919] focus:outline-none focus:border-[#AF191A]"
@@ -114,10 +118,12 @@ export function RekamKerjaFilter({
 
         {/* Year Select */}
         <div>
-          <label className="block text-[11px] font-semibold text-neutral-500 mb-1">
+          <label htmlFor="filter-year" className="block text-[11px] font-semibold text-neutral-500 mb-1">
             Periode / Tahun
           </label>
           <select
+            id="filter-year"
+            aria-label="Filter berdasarkan periode tahun"
             value={currentYear}
             onChange={(e) => updateParam('year', e.target.value)}
             className="w-full px-3 py-2 text-xs border border-neutral-300 rounded-lg bg-white text-[#191919] focus:outline-none focus:border-[#AF191A]"

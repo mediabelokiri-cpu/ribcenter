@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { logoutAdmin } from '@/app/admin/actions';
-import { getCurrentUser } from '@/lib/auth';
+import { getCurrentUser, requireAdmin } from '@/lib/auth';
+import { isSupabaseConfigured } from '@/lib/env';
 
 export const dynamic = 'force-dynamic';
 
@@ -9,8 +10,17 @@ export default async function AdminAuthenticatedLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const user = await getCurrentUser();
-  const adminEmail = user?.email || 'admin@internal.local';
+  let adminEmail = 'admin@internal.local';
+
+  if (isSupabaseConfigured()) {
+    const session = await requireAdmin();
+    adminEmail = session.user.email;
+  } else {
+    const user = await getCurrentUser();
+    if (user?.email) {
+      adminEmail = user.email;
+    }
+  }
 
   return (
     <div className="min-h-screen flex bg-[#F9FAFB] text-[#191919]">
@@ -201,6 +211,7 @@ export default async function AdminAuthenticatedLayout({
             <Link
               href="/"
               target="_blank"
+              rel="noopener noreferrer"
               className="px-3 py-1.5 text-xs font-medium text-neutral-700 hover:text-[#AF191A] border border-neutral-300 rounded-lg hover:border-[#AF191A] transition-colors"
             >
               Pratinjau Situs &rarr;

@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { PublicHeader } from '@/components/layout/public-header';
 import { PublicFooter } from '@/components/layout/public-footer';
 import { getActivityBySlug } from '@/services/activities';
+import { StructuredData } from '@/components/seo/structured-data';
 import type { ActivityType } from '@/types/database';
 
 export const dynamic = 'force-dynamic';
@@ -87,9 +88,37 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
   };
 
   const embedUrl = getEmbedUrl(activity.video_url);
+  const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
+  const activityJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: activity.title,
+    description: activity.summary || activity.title,
+    image: activity.cover_image_url ? [activity.cover_image_url] : undefined,
+    datePublished: activity.date || activity.created_at,
+    dateModified: activity.updated_at || activity.date || activity.created_at,
+    author: {
+      '@type': 'Person',
+      name: 'Rahmat Ichwan Bahtiar',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'KAWAN RIB',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/rahmat-hero.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${siteUrl}/rekam-kerja/${activity.slug}`,
+    },
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#191919]">
+      <StructuredData data={activityJsonLd} />
       {/* Public Header with Black Background & KAWAN RIB Branding */}
       <PublicHeader activeRoute="/rekam-kerja" />
 

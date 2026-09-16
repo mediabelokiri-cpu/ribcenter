@@ -58,41 +58,49 @@ export default async function AlbumDetailPage({ params }: AlbumDetailPageProps) 
 
   const photos = await getMediaByAlbum(album.id, true);
 
+  const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#191919]">
       <PublicHeader activeRoute="/galeri" />
 
       <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-10 space-y-10">
-        {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-2 text-xs text-neutral-500">
-          <Link href="/" className="hover:text-[#AF191A]">Beranda</Link>
-          <span>/</span>
-          <Link href="/galeri" className="hover:text-[#AF191A]">Galeri</Link>
-          <span>/</span>
-          <Link href="/galeri/foto" className="hover:text-[#AF191A]">Album Foto</Link>
-          <span>/</span>
-          <span className="text-[#191919] font-medium line-clamp-1 max-w-xs sm:max-w-md">
-            {album.title}
-          </span>
-        </nav>
+        {/* Top bar: Breadcrumbs & Back */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-200 pb-4">
+          <nav className="flex items-center gap-2 text-xs text-neutral-500">
+            <Link href="/" className="hover:text-[#AF191A]">Beranda</Link>
+            <span>/</span>
+            <Link href="/galeri" className="hover:text-[#AF191A]">Galeri</Link>
+            <span>/</span>
+            <Link href="/galeri/foto" className="hover:text-[#AF191A]">Foto</Link>
+            <span>/</span>
+            <span className="text-[#191919] font-medium truncate max-w-xs">{album.title}</span>
+          </nav>
+          <Link
+            href="/galeri/foto"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-neutral-600 hover:text-[#AF191A] transition-colors"
+          >
+            &larr; Kembali ke Daftar Album
+          </Link>
+        </div>
 
-        {/* Album Header Bar */}
-        <div className="p-6 sm:p-8 bg-neutral-50 rounded-2xl border border-neutral-200 space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <span className="px-2.5 py-1 text-[11px] font-mono font-bold uppercase rounded-md bg-[#AF191A] text-white">
-                ALBUM FOTO
-              </span>
-              <span className="px-2.5 py-1 text-[11px] font-mono font-bold rounded-md bg-white border border-neutral-200 text-neutral-700">
-                📷 {photos.length} Foto
-              </span>
+        {/* Album Header */}
+        <div className="space-y-4">
+          <h1 className="text-2xl sm:text-3xl font-black text-[#191919]">{album.title}</h1>
+
+          <div className="flex flex-wrap items-center justify-between gap-4 py-2 border-y border-neutral-100">
+            <div className="flex items-center gap-4 text-xs text-neutral-500">
+              {album.created_at && (
+                <span>📅 {new Date(album.created_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+              )}
+              <span>📷 {photos.length} Foto Tersedia</span>
             </div>
 
             {/* Share Buttons */}
             <div className="flex items-center gap-2 text-xs">
               <span className="text-neutral-400">Bagikan:</span>
               <a
-                href={`https://wa.me/?text=${encodeURIComponent(`${album.title} - https://rahmatichwanbahtiar.id/galeri/foto/${album.slug}`)}`}
+                href={`https://wa.me/?text=${encodeURIComponent(`${album.title} - ${siteUrl}/galeri/foto/${album.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-2.5 py-1 rounded-md bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366]/20 font-semibold transition-colors"
@@ -100,7 +108,7 @@ export default async function AlbumDetailPage({ params }: AlbumDetailPageProps) 
                 WhatsApp
               </a>
               <a
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(album.title)}&url=${encodeURIComponent(`https://rahmatichwanbahtiar.id/galeri/foto/${album.slug}`)}`}
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(album.title)}&url=${encodeURIComponent(`${siteUrl}/galeri/foto/${album.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-2.5 py-1 rounded-md bg-neutral-900 text-white hover:bg-neutral-800 font-semibold transition-colors"

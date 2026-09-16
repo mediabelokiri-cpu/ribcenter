@@ -1,5 +1,6 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { StructuredData } from '@/components/seo/structured-data';
 import './globals.css';
 
 const geistSans = Geist({
@@ -12,10 +13,97 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#191919',
+};
+
 export const metadata: Metadata = {
-  title: 'KAWAN RIB | Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'KAWAN RIB | Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar',
+    template: '%s | KAWAN RIB',
+  },
   description:
-    'KAWAN RIB - Platform Resmi Informasi dan Akuntabilitas Publik Rahmat Ichwan Bahtiar',
+    'Platform resmi informasi publik, rekam kerja, transparansi kebijakan daerah, dan kanal partisipasi aspirasi warga bersama Rahmat Ichwan Bahtiar.',
+  keywords: [
+    'Rahmat Ichwan Bahtiar',
+    'KAWAN RIB',
+    'Kalimantan Timur',
+    'Rekam Kerja',
+    'Akuntabilitas Publik',
+    'Transparansi Kebijakan',
+    'Aspirasi Warga',
+  ],
+  authors: [{ name: 'Rahmat Ichwan Bahtiar' }],
+  creator: 'Tim Kerja KAWAN RIB',
+  publisher: 'KAWAN RIB',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'id_ID',
+    url: siteUrl,
+    siteName: 'KAWAN RIB — Rahmat Ichwan Bahtiar',
+    title: 'KAWAN RIB | Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar',
+    description:
+      'Platform resmi informasi publik, rekam kerja, transparansi kebijakan daerah, dan kanal partisipasi aspirasi warga bersama Rahmat Ichwan Bahtiar.',
+    images: [
+      {
+        url: '/rahmat-hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'Rahmat Ichwan Bahtiar — KAWAN RIB',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'KAWAN RIB | Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar',
+    description:
+      'Platform resmi informasi publik, rekam kerja, transparansi kebijakan daerah, dan kanal partisipasi aspirasi warga bersama Rahmat Ichwan Bahtiar.',
+    images: ['/rahmat-hero.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+const rootWebsiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: siteUrl,
+      name: 'KAWAN RIB — Rahmat Ichwan Bahtiar',
+      description:
+        'Platform resmi informasi publik, rekam kerja, transparansi kebijakan daerah, dan kanal partisipasi aspirasi warga bersama Rahmat Ichwan Bahtiar.',
+      inLanguage: 'id-ID',
+    },
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#person`,
+      name: 'Rahmat Ichwan Bahtiar',
+      url: siteUrl,
+      jobTitle: 'Tokoh Publik & Perwakilan Warga',
+      sameAs: [
+        'https://instagram.com/rahmatichwanbahtiar',
+      ],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -29,6 +117,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-white text-[#191919] antialiased">
+        <StructuredData data={rootWebsiteJsonLd} />
         {children}
       </body>
     </html>
