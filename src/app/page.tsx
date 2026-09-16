@@ -57,9 +57,9 @@ export default async function HomePage() {
                 </div>
 
                 {/* Foreground Container: Mobile order swapped (Text on top, photo on bottom) */}
-                <div className="relative z-10 max-w-6xl w-full mx-auto px-6 flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-8 items-end">
+                <div className="relative z-10 max-w-7xl w-full mx-auto px-6 flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-8 items-end">
                   {/* Text & CTA Column: order-1 on mobile, col-span-7 / order-2 on desktop */}
-                  <div className="order-1 md:order-2 md:col-span-7 flex flex-col justify-center pt-10 md:pt-16 md:py-20 space-y-4 md:space-y-5 text-center md:text-left w-full">
+                  <div className="order-1 md:order-2 md:col-span-7 flex flex-col justify-center pt-10 md:pt-14 md:py-16 lg:py-20 space-y-4 md:space-y-5 text-center md:text-left w-full">
                     <div>
                       <span className="inline-block px-3 py-1 text-[11px] sm:text-xs font-bold tracking-wider uppercase rounded-md bg-[#AF191A] text-white shadow-sm">
                         KANAL ASPIRASI
@@ -96,7 +96,7 @@ export default async function HomePage() {
                     <img
                       src="/rahmat-ichwan-bahtiar-hero.png"
                       alt={profile?.name || 'Rahmat Ichwan Bahtiar, S.M'}
-                      className="h-[300px] sm:h-[380px] md:h-[480px] lg:h-[540px] xl:h-[580px] w-auto object-contain object-bottom drop-shadow-2xl"
+                      className="h-[350px] sm:h-[440px] md:h-[540px] lg:h-[640px] xl:h-[720px] 2xl:h-[780px] w-auto max-w-full object-contain object-bottom drop-shadow-2xl"
                     />
                   </div>
                 </div>
