@@ -43,3 +43,5 @@ next-env.d.ts
 
 # large raw assets
 public/background-hero-section.png
+
+.vercel

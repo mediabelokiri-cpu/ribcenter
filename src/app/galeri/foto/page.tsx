@@ -99,9 +99,6 @@ export default async function GaleriFotoPage() {
                         src={album.cover_image_url}
                         alt={album.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = '/file.svg';
-                        }}
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-3xl text-neutral-400">
