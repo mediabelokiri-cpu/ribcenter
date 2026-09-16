@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Rahmat Ichwan Bahtiar | Platform Informasi & Akuntabilitas Publik',
+  title: 'KAWAN RIB | Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar',
   description:
-    'Platform Resmi Informasi dan Akuntabilitas Publik Rahmat Ichwan Bahtiar',
+    'KAWAN RIB - Platform Resmi Informasi dan Akuntabilitas Publik Rahmat Ichwan Bahtiar',
 };
 
 export default function RootLayout({

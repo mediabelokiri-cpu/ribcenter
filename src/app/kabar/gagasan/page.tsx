@@ -2,6 +2,7 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { PublicHeader } from '@/components/layout/public-header';
 import { getPublishedArticles } from '@/services/articles';
 import { getProfile } from '@/services/profile';
 import { KabarFilter } from '../kabar-filter';
@@ -50,37 +51,7 @@ export default async function GagasanPage({ searchParams }: GagasanPageProps) {
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#191919]">
       {/* Public Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="font-bold text-base tracking-tight text-[#191919] flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#AF191A]"></span>
-            {profile?.display_name || 'Rahmat Ichwan Bahtiar'}
-          </Link>
-          <nav className="flex items-center gap-6 text-sm font-medium">
-            <Link href="/" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Beranda
-            </Link>
-            <Link href="/tentang" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Tentang
-            </Link>
-            <Link href="/rekam-kerja" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Rekam Kerja
-            </Link>
-            <Link href="/kabar" className="text-[#AF191A] font-bold">
-              Kabar
-            </Link>
-            <Link href="/galeri" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Galeri
-            </Link>
-            <Link href="/aspirasi" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Aspirasi
-            </Link>
-            <Link href="/kontak" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Kontak
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <PublicHeader activeRoute="/kabar" />
 
       {/* Main Container */}
       <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-10 space-y-8">

@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { PublicHeader } from '@/components/layout/public-header';
 import { getActivityBySlug } from '@/services/activities';
-import { getProfile } from '@/services/profile';
 import type { ActivityType } from '@/types/database';
 
 export const dynamic = 'force-dynamic';
@@ -44,10 +44,7 @@ export async function generateMetadata({ params }: RekamKerjaDetailProps): Promi
 
 export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailProps) {
   const { slug } = await params;
-  const [activity, profile] = await Promise.all([
-    getActivityBySlug(slug),
-    getProfile(),
-  ]);
+  const activity = await getActivityBySlug(slug);
 
   if (!activity) {
     notFound();
@@ -92,44 +89,8 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#191919]">
-      {/* Public Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="font-bold text-base tracking-tight text-[#191919] flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#AF191A]"></span>
-            {profile?.display_name || 'Rahmat Ichwan Bahtiar'}
-          </Link>
-          <nav className="flex items-center gap-6 text-sm font-medium">
-            <Link href="/" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Beranda
-            </Link>
-            <Link href="/tentang" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Tentang
-            </Link>
-            <Link href="/rekam-kerja" className="text-[#AF191A] font-bold">
-              Rekam Kerja
-            </Link>
-            <Link href="/kabar" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Kabar
-            </Link>
-            <Link href="/galeri" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Galeri
-            </Link>
-            <Link href="/aspirasi" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Aspirasi
-            </Link>
-            <Link href="/kontak" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Kontak
-            </Link>
-            <Link
-              href="/admin"
-              className="ml-2 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-[#191919] text-white hover:bg-[#AF191A] transition-colors shadow-xs"
-            >
-              CMS Admin
-            </Link>
-          </nav>
-        </div>
-      </header>
+      {/* Public Header with Black Background & KAWAN RIB Branding */}
+      <PublicHeader activeRoute="/rekam-kerja" />
 
       {/* Main Content */}
       <main className="flex-1 max-w-4xl w-full mx-auto px-6 py-12 space-y-8">

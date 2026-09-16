@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
+import { PublicHeader } from '@/components/layout/public-header';
 import { getHomepageSections } from '@/services/homepage';
 import { getProfile } from '@/services/profile';
 import { getPublishedActivities } from '@/services/activities';
@@ -30,44 +31,8 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#191919]">
-      {/* Public Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200 shadow-xs">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="font-bold text-base tracking-tight text-[#191919] flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#AF191A]"></span>
-            {profile?.display_name || 'Rahmat Ichwan Bahtiar'}
-          </Link>
-          <nav className="flex items-center gap-6 text-sm font-medium">
-            <Link href="/" className="text-[#AF191A] font-bold">
-              Beranda
-            </Link>
-            <Link href="/tentang" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Tentang
-            </Link>
-            <Link href="/rekam-kerja" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Rekam Kerja
-            </Link>
-            <Link href="/kabar" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Kabar
-            </Link>
-            <Link href="/galeri" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Galeri
-            </Link>
-            <Link href="/aspirasi" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Aspirasi
-            </Link>
-            <Link href="/kontak" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Kontak
-            </Link>
-            <Link
-              href="/admin"
-              className="ml-2 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-[#AF191A] text-white hover:bg-[#8e1415] transition-colors shadow-xs"
-            >
-              CMS Admin
-            </Link>
-          </nav>
-        </div>
-      </header>
+      {/* Public Header with Black Background & KAWAN RIB Branding */}
+      <PublicHeader activeRoute="/" />
 
       {/* Main Content: Render Active Sections Dynamically in Order */}
       <main className="flex-1">
@@ -79,7 +44,7 @@ export default async function HomePage() {
             return (
               <section
                 key={sec.id}
-                className="relative overflow-hidden bg-neutral-900 border-b border-neutral-700 min-h-[480px] md:min-h-[520px] flex items-end"
+                className="relative overflow-hidden bg-neutral-950 border-b border-neutral-800 min-h-[580px] sm:min-h-[640px] md:min-h-[680px] lg:min-h-[720px] xl:min-h-[760px] flex items-end"
               >
                 {/* Background Image with Light/Clear Atmospheric Overlay */}
                 <div
@@ -91,26 +56,17 @@ export default async function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/55 via-black/20 to-black/35" />
                 </div>
 
-                {/* Foreground Container */}
-                <div className="relative z-10 max-w-6xl w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-end">
-                  {/* Left Column: New Cutout Portrait pinned to the bottom */}
-                  <div className="md:col-span-5 flex justify-center md:justify-start items-end pt-6 md:pt-0">
-                    <img
-                      src="/rahmat-ichwan-bahtiar-hero.png"
-                      alt={profile?.name || 'Rahmat Ichwan Bahtiar, S.M'}
-                      className="h-[320px] sm:h-[400px] md:h-[450px] lg:h-[480px] w-auto object-contain object-bottom drop-shadow-2xl"
-                    />
-                  </div>
-
-                  {/* Right Column: Narrative, Big Yellow Heading, and Dual CTAs */}
-                  <div className="md:col-span-7 flex flex-col justify-center py-10 md:py-16 space-y-4 md:space-y-5 text-center md:text-left">
+                {/* Foreground Container: Mobile order swapped (Text on top, photo on bottom) */}
+                <div className="relative z-10 max-w-6xl w-full mx-auto px-6 flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-8 items-end">
+                  {/* Text & CTA Column: order-1 on mobile, col-span-7 / order-2 on desktop */}
+                  <div className="order-1 md:order-2 md:col-span-7 flex flex-col justify-center pt-10 md:pt-16 md:py-20 space-y-4 md:space-y-5 text-center md:text-left w-full">
                     <div>
                       <span className="inline-block px-3 py-1 text-[11px] sm:text-xs font-bold tracking-wider uppercase rounded-md bg-[#AF191A] text-white shadow-sm">
                         KANAL ASPIRASI
                       </span>
                     </div>
 
-                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#FFCC00] leading-tight drop-shadow-md">
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black tracking-tight text-[#FFCC00] leading-tight drop-shadow-md">
                       {content.headline || 'Rahmat Ichwan Bahtiar, S.M'}
                     </h1>
 
@@ -133,6 +89,15 @@ export default async function HomePage() {
                         {content.cta_secondary_label || 'Sampaikan Aspirasi Warga'}
                       </Link>
                     </div>
+                  </div>
+
+                  {/* Cutout Portrait Column: order-2 on mobile (at bottom), col-span-5 / order-1 on desktop */}
+                  <div className="order-2 md:order-1 md:col-span-5 flex justify-center md:justify-start items-end w-full">
+                    <img
+                      src="/rahmat-ichwan-bahtiar-hero.png"
+                      alt={profile?.name || 'Rahmat Ichwan Bahtiar, S.M'}
+                      className="h-[300px] sm:h-[380px] md:h-[480px] lg:h-[540px] xl:h-[580px] w-auto object-contain object-bottom drop-shadow-2xl"
+                    />
                   </div>
                 </div>
               </section>

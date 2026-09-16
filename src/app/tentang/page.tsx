@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { PublicHeader } from '@/components/layout/public-header';
 import { getProfile, getTimeline, getOrganizations } from '@/services/profile';
 
 export const dynamic = 'force-dynamic';
@@ -11,49 +11,13 @@ export default async function TentangPage() {
   ]);
 
   const education = Array.isArray(profile?.education)
-    ? (profile.education as Array<{ institution: string; degree: string; field: string; year: string }>)
+    ? (profile.education as Array<{ degree: string; institution: string; year: string; field?: string }>)
     : [];
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#191919]">
       {/* Public Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-neutral-200 shadow-xs">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="font-bold text-base tracking-tight text-[#191919] flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#AF191A]"></span>
-            {profile?.display_name || 'Rahmat Ichwan Bahtiar'}
-          </Link>
-          <nav className="flex items-center gap-6 text-sm font-medium">
-            <Link href="/" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Beranda
-            </Link>
-            <Link href="/tentang" className="text-[#AF191A] font-bold">
-              Tentang
-            </Link>
-            <Link href="/rekam-kerja" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Rekam Kerja
-            </Link>
-            <Link href="/kabar" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Kabar
-            </Link>
-            <Link href="/galeri" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Galeri
-            </Link>
-            <Link href="/aspirasi" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Aspirasi
-            </Link>
-            <Link href="/kontak" className="text-neutral-600 hover:text-[#AF191A] transition-colors">
-              Kontak
-            </Link>
-            <Link
-              href="/admin"
-              className="ml-2 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-[#AF191A] text-white hover:bg-[#8e1415] transition-colors shadow-xs"
-            >
-              CMS Admin
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <PublicHeader activeRoute="/tentang" />
 
       {/* Main Content */}
       <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-12 space-y-16">
