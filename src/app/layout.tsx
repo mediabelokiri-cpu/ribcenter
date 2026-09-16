@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { StructuredData } from '@/components/seo/structured-data';
+import { InstallPrompt } from '@/components/pwa/install-prompt';
 import './globals.css';
 
 const geistSans = Geist({
@@ -48,6 +49,11 @@ export const metadata: Metadata = {
     ],
     shortcut: '/icon.png',
     apple: '/icon.png',
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'RIB CENTER',
   },
   alternates: {
     canonical: '/',
@@ -127,6 +133,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans bg-white text-[#191919] antialiased">
         <StructuredData data={rootWebsiteJsonLd} />
         {children}
+        <InstallPrompt />
       </body>
     </html>
   );
