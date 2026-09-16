@@ -7,6 +7,7 @@ import Link from 'next/link';
 import type { Article, ArticleType, ContentStatus, Activity } from '@/types/database';
 import { createArticleAction, updateArticleAction } from './actions';
 import { slugify } from '@/lib/slug';
+import { MediaPickerModal } from '@/components/media/media-picker-modal';
 
 interface ArticleFormProps {
   initialData?: Article | null;
@@ -39,6 +40,7 @@ export function ArticleForm({
       : new Date().toISOString().slice(0, 10)
   );
   const [coverImageUrl, setCoverImageUrl] = useState(initialData?.cover_image_url || '');
+  const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [excerpt, setExcerpt] = useState(initialData?.excerpt || '');
   const [content, setContent] = useState(initialData?.content || '');
   const [relatedActivityId, setRelatedActivityId] = useState(initialData?.related_activity_id || '');
@@ -342,13 +344,22 @@ export function ArticleForm({
             <label className="block text-xs font-semibold text-neutral-700 mb-1">
               URL Foto Sampul (Cover Image)
             </label>
-            <input
-              type="url"
-              value={coverImageUrl}
-              onChange={(e) => setCoverImageUrl(e.target.value)}
-              placeholder="https://images.example.com/kabar-sampul.jpg"
-              className="w-full px-3 py-2 text-xs border border-neutral-300 rounded-lg bg-white text-[#191919] font-mono focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
-            />
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={coverImageUrl}
+                onChange={(e) => setCoverImageUrl(e.target.value)}
+                placeholder="https://... atau pilih dari Pustaka Media"
+                className="flex-1 px-3 py-2 text-xs border border-neutral-300 rounded-lg bg-white text-[#191919] font-mono focus:outline-none focus:ring-1 focus:ring-[#AF191A]"
+              />
+              <button
+                type="button"
+                onClick={() => setIsPickerOpen(true)}
+                className="px-3 py-2 text-xs font-semibold rounded-lg bg-neutral-900 text-white hover:bg-neutral-800 transition-colors shrink-0 shadow-xs flex items-center gap-1.5"
+              >
+                <span>🖼️</span> Pilih Media
+              </button>
+            </div>
             {coverImageUrl && (
               <div className="mt-2 p-2 bg-neutral-50 border border-neutral-200 rounded-lg flex items-center gap-3">
                 <img
@@ -359,7 +370,9 @@ export function ArticleForm({
                     (e.target as HTMLImageElement).style.display = 'none';
                   }}
                 />
-                <span className="text-[11px] text-neutral-500">Pratinjau Foto Sampul Terhubung</span>
+                <span className="text-[11px] text-neutral-500 font-mono truncate">
+                  {coverImageUrl}
+                </span>
               </div>
             )}
           </div>
@@ -628,6 +641,13 @@ export function ArticleForm({
           {isPending ? 'Menyimpan...' : isEditing ? 'Simpan Perubahan' : 'Terbitkan Artikel'}
         </button>
       </div>
+
+      <MediaPickerModal
+        isOpen={isPickerOpen}
+        onClose={() => setIsPickerOpen(false)}
+        onSelect={(url) => setCoverImageUrl(url)}
+        title="Pilih Sampul Berita & Gagasan"
+      />
     </form>
   );
 }
