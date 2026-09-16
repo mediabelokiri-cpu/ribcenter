@@ -44,11 +44,11 @@ export default async function HomePage() {
             return (
               <section
                 key={sec.id}
-                className="relative overflow-hidden bg-neutral-950 border-b border-neutral-800 min-h-[580px] sm:min-h-[640px] md:min-h-[680px] lg:min-h-[720px] xl:min-h-[760px] flex items-end"
+                className="relative overflow-hidden bg-neutral-950 border-b border-neutral-800 min-h-[460px] sm:min-h-[500px] md:min-h-[540px] lg:min-h-[580px] xl:min-h-[620px] flex items-end"
               >
-                {/* Background Image with Light/Clear Atmospheric Overlay */}
+                {/* Background Image with Top-anchored alignment for wide panorama without cropping top content */}
                 <div
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                  className="absolute inset-0 bg-cover bg-top bg-no-repeat"
                   style={{ backgroundImage: "url('/hero-bg.webp')" }}
                 >
                   {/* Gentle gradient overlay so background people/village photo is clearly visible */}
@@ -59,7 +59,7 @@ export default async function HomePage() {
                 {/* Foreground Container: Mobile order swapped (Text on top, photo on bottom) */}
                 <div className="relative z-10 max-w-7xl w-full mx-auto px-6 flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-8 items-end">
                   {/* Text & CTA Column: order-1 on mobile, col-span-7 / order-2 on desktop */}
-                  <div className="order-1 md:order-2 md:col-span-7 flex flex-col justify-center pt-10 md:pt-14 md:py-16 lg:py-20 space-y-4 md:space-y-5 text-center md:text-left w-full">
+                  <div className="order-1 md:order-2 md:col-span-7 flex flex-col justify-center pt-8 md:pt-10 md:py-12 lg:py-14 space-y-3.5 md:space-y-4 text-center md:text-left w-full">
                     <div>
                       <span className="inline-block px-3 py-1 text-[11px] sm:text-xs font-bold tracking-wider uppercase rounded-md bg-[#AF191A] text-white shadow-sm">
                         KANAL ASPIRASI
@@ -96,7 +96,7 @@ export default async function HomePage() {
                     <img
                       src="/rahmat-ichwan-bahtiar-hero.png"
                       alt={profile?.name || 'Rahmat Ichwan Bahtiar, S.M'}
-                      className="h-[350px] sm:h-[440px] md:h-[540px] lg:h-[640px] xl:h-[720px] 2xl:h-[780px] w-auto max-w-full object-contain object-bottom drop-shadow-2xl"
+                      className="h-[320px] sm:h-[400px] md:h-[480px] lg:h-[540px] xl:h-[600px] 2xl:h-[620px] w-auto max-w-full object-contain object-bottom drop-shadow-2xl"
                     />
                   </div>
                 </div>
