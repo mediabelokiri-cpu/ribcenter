@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import { getHomepageSections } from '@/services/homepage';
 import { getProfile } from '@/services/profile';
@@ -73,41 +74,64 @@ export default async function HomePage() {
         {sections.map((sec) => {
           const content = (sec.content as Record<string, string | number | boolean | null | undefined>) || {};
 
-          // 1. HERO SECTION
+          // 1. HERO SECTION (Atmospheric Layout with Cutout Portrait)
           if (sec.section_key === 'hero') {
             return (
               <section
                 key={sec.id}
-                className="py-20 md:py-28 px-6 bg-gradient-to-b from-neutral-50/80 via-white to-neutral-50/40 border-b border-neutral-200"
+                className="relative overflow-hidden bg-neutral-950 border-b border-neutral-800 min-h-[500px] md:min-h-[540px] flex items-end"
               >
-                <div className="max-w-4xl mx-auto text-center space-y-6">
-                  <span className="inline-block px-3.5 py-1 text-xs font-bold tracking-wide uppercase rounded-full bg-[#AF191A]/10 text-[#AF191A] border border-[#AF191A]/20">
-                    Akuntabilitas &amp; Transparansi Publik
-                  </span>
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#191919] leading-tight">
-                    {content.headline || 'Platform Informasi & Akuntabilitas Publik'}
-                  </h1>
-                  <p className="max-w-2xl mx-auto text-base sm:text-lg text-neutral-600">
-                    {content.subheadline ||
-                      'Keterbukaan rekam kerja, publikasi gagasan, dan saluran aspirasi masyarakat Rahmat Ichwan Bahtiar.'}
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-4 pt-4">
-                    {content.cta_primary_label && (
+                {/* Background Image with Dark Atmospheric Overlay */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                  style={{ backgroundImage: "url('/hero-bg.webp')" }}
+                >
+                  <div className="absolute inset-0 bg-black/60 md:bg-black/50" />
+                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/90 via-black/55 to-black/75" />
+                </div>
+
+                {/* Foreground Container */}
+                <div className="relative z-10 max-w-6xl w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-end">
+                  {/* Left Column: Cutout Portrait pinned to the bottom */}
+                  <div className="md:col-span-5 flex justify-center md:justify-start items-end pt-8 md:pt-0">
+                    <img
+                      src="/rahmat-ichwan-bahtiar-hero.webp"
+                      alt={profile?.name || 'Rahmat Ichwan Bahtiar, S.M'}
+                      className="h-[360px] sm:h-[440px] md:h-[490px] lg:h-[530px] w-auto object-contain object-bottom drop-shadow-2xl"
+                    />
+                  </div>
+
+                  {/* Right Column: Narrative, Big Yellow Heading, and Dual CTAs */}
+                  <div className="md:col-span-7 flex flex-col justify-center py-10 md:py-16 space-y-4 md:space-y-5 text-center md:text-left">
+                    <div>
+                      <span className="inline-block px-3 py-1 text-[11px] sm:text-xs font-bold tracking-wider uppercase rounded-md bg-[#AF191A] text-white shadow-xs">
+                        KANAL ASPIRASI
+                      </span>
+                    </div>
+
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#FFCC00] leading-tight">
+                      {content.headline || 'Rahmat Ichwan Bahtiar, S.M'}
+                    </h1>
+
+                    <p className="text-sm sm:text-base text-white/90 max-w-xl mx-auto md:mx-0 leading-relaxed font-normal">
+                      {content.subheadline ||
+                        'Keterbukaan rekam kerja, publikasi gagasan, dan saluran aspirasi masyarakat Rahmat Ichwan Bahtiar.'}
+                    </p>
+
+                    <div className="flex flex-wrap justify-center md:justify-start items-center gap-3.5 pt-2">
                       <Link
                         href={getString(content.cta_primary_link, '/tentang')}
-                        className="px-6 py-3 text-sm font-semibold rounded-xl bg-[#AF191A] text-white hover:bg-[#8e1415] transition-colors shadow-sm"
+                        className="px-5 py-3 text-xs sm:text-sm font-semibold rounded-xl bg-[#AF191A] text-white hover:bg-[#8e1415] transition-all shadow-md"
                       >
-                        {content.cta_primary_label}
+                        {content.cta_primary_label || 'Lihat Profil & Rekam Jejak'}
                       </Link>
-                    )}
-                    {content.cta_secondary_label && (
                       <Link
                         href={getString(content.cta_secondary_link, '/aspirasi')}
-                        className="px-6 py-3 text-sm font-semibold rounded-xl border border-neutral-300 text-neutral-800 hover:border-[#AF191A] hover:text-[#AF191A] bg-white transition-colors shadow-xs"
+                        className="px-5 py-3 text-xs sm:text-sm font-semibold rounded-xl bg-white text-[#191919] hover:bg-neutral-100 transition-all shadow-md"
                       >
-                        {content.cta_secondary_label}
+                        {content.cta_secondary_label || 'Sampaikan Aspirasi Warga'}
                       </Link>
-                    )}
+                    </div>
                   </div>
                 </div>
               </section>
