@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import { PublicHeader } from '@/components/layout/public-header';
+import { PublicFooter } from '@/components/layout/public-footer';
 import { getHomepageSections } from '@/services/homepage';
 import { getProfile } from '@/services/profile';
 import { getPublishedActivities } from '@/services/activities';
@@ -378,41 +379,8 @@ export default async function HomePage() {
         })}
       </main>
 
-      {/* Public Footer (Light Theme) */}
-      <footer className="py-12 px-6 bg-white border-t border-neutral-200 text-xs text-neutral-600">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-          <div className="space-y-1">
-            <p className="font-bold text-[#191919] text-sm">
-              {profile?.display_name || 'Rahmat Ichwan Bahtiar'}
-            </p>
-            <p className="text-[#AF191A] font-medium">Platform Resmi Informasi &amp; Akuntabilitas Publik</p>
-            <p className="text-[11px] text-neutral-400">
-              &copy; {new Date().getFullYear()} KAWAN RIB. All rights reserved.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-neutral-600">
-            <Link href="/tentang" className="hover:text-[#AF191A] transition-colors">
-              Tentang
-            </Link>
-            <Link href="/rekam-kerja" className="hover:text-[#AF191A] transition-colors">
-              Rekam Kerja
-            </Link>
-            <Link href="/kabar" className="hover:text-[#AF191A] transition-colors">
-              Kabar
-            </Link>
-            <Link href="/galeri" className="hover:text-[#AF191A] transition-colors">
-              Galeri
-            </Link>
-            <Link href="/aspirasi" className="hover:text-[#AF191A] transition-colors text-[#AF191A]">
-              Aspirasi Warga
-            </Link>
-            <Link href="/kontak" className="hover:text-[#AF191A] transition-colors">
-              Kontak
-            </Link>
-          </div>
-        </div>
-      </footer>
+      {/* Public Footer */}
+      <PublicFooter />
     </div>
   );
 }

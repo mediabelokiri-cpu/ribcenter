@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { PublicHeader } from '@/components/layout/public-header';
+import { PublicFooter } from '@/components/layout/public-footer';
 import { getPublishedAlbums, getMediaItems } from '@/services/media';
 
 export const dynamic = 'force-dynamic';
@@ -134,15 +135,7 @@ export default async function GaleriFotoPage() {
         )}
       </main>
 
-      <footer className="py-12 px-6 bg-neutral-50 border-t border-neutral-200 text-xs text-neutral-600 text-center mt-12">
-        <div className="max-w-6xl mx-auto space-y-2">
-          <p className="font-bold text-[#191919] text-sm">Rahmat Ichwan Bahtiar</p>
-          <p className="text-[#AF191A] font-medium">Platform Resmi Informasi &amp; Akuntabilitas Publik</p>
-          <p className="text-[11px] text-neutral-400 pt-4">
-            &copy; {new Date().getFullYear()} Rahmat Ichwan Bahtiar. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <PublicFooter />
     </div>
   );
 }

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 
 interface PublicHeaderProps {
-  activeRoute?: '/' | '/tentang' | '/rekam-kerja' | '/kabar' | '/galeri' | '/aspirasi' | '/kontak';
+  activeRoute?: string;
 }
 
 export function PublicHeader({ activeRoute = '/' }: PublicHeaderProps) {
@@ -38,7 +38,9 @@ export function PublicHeader({ activeRoute = '/' }: PublicHeaderProps) {
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-5 text-xs lg:text-sm font-medium">
           {navLinks.map((link) => {
-            const isActive = activeRoute === link.key;
+            const isActive =
+              activeRoute === link.key ||
+              (link.key !== '/' && activeRoute.startsWith(link.key));
             return (
               <Link
                 key={link.href}
@@ -76,7 +78,9 @@ export function PublicHeader({ activeRoute = '/' }: PublicHeaderProps) {
       {/* Mobile Sub-Navigation Bar */}
       <div className="md:hidden px-4 py-2 border-t border-neutral-800 bg-[#141414] flex items-center gap-4 overflow-x-auto text-xs whitespace-nowrap scrollbar-none">
         {navLinks.map((link) => {
-          const isActive = activeRoute === link.key;
+          const isActive =
+            activeRoute === link.key ||
+            (link.key !== '/' && activeRoute.startsWith(link.key));
           return (
             <Link
               key={link.href}

@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { PublicHeader } from '@/components/layout/public-header';
+import { PublicFooter } from '@/components/layout/public-footer';
 import { getPublishedArticles } from '@/services/articles';
-import { getProfile } from '@/services/profile';
 import { KabarFilter } from '../kabar-filter';
 
 export const dynamic = 'force-dynamic';
@@ -41,8 +41,7 @@ export default async function GagasanPage({ searchParams }: GagasanPageProps) {
   const params = await searchParams;
   const searchQuery = params.q?.trim() || '';
 
-  const [profile, gagasanList, allBerita, allGagasan] = await Promise.all([
-    getProfile(),
+  const [gagasanList, allBerita, allGagasan] = await Promise.all([
     getPublishedArticles({ type: 'GAGASAN', search: searchQuery }),
     getPublishedArticles({ type: 'BERITA' }),
     getPublishedArticles({ type: 'GAGASAN' }),
@@ -161,21 +160,7 @@ export default async function GagasanPage({ searchParams }: GagasanPageProps) {
       </main>
 
       {/* Public Footer */}
-      <footer className="py-8 border-t border-neutral-200 bg-neutral-50 text-neutral-600 text-xs">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-          <div>
-            <p className="font-semibold text-[#191919]">
-              {profile?.display_name || 'Rahmat Ichwan Bahtiar'}
-            </p>
-            <p className="text-neutral-500 text-[11px] mt-0.5">
-              Platform Informasi Publik &amp; Akuntabilitas Kerja
-            </p>
-          </div>
-          <p className="text-neutral-500">
-            &copy; {new Date().getFullYear()} Rahmat Ichwan Bahtiar. Seluruh hak cipta dilindungi.
-          </p>
-        </div>
-      </footer>
+      <PublicFooter />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
 import { PublicHeader } from '@/components/layout/public-header';
+import { PublicFooter } from '@/components/layout/public-footer';
 import type { ActivityType } from '@/types/database';
 import {
   getPublishedActivities,
@@ -8,7 +9,6 @@ import {
   getDistinctRegencies,
   getDistinctYears,
 } from '@/services/activities';
-import { getProfile } from '@/services/profile';
 import { RekamKerjaFilter } from './rekam-kerja-filter';
 
 export const dynamic = 'force-dynamic';
@@ -29,8 +29,7 @@ export default async function RekamKerjaPage({ searchParams }: RekamKerjaPagePro
   const currentRegency = params.regency;
   const currentYear = params.year ? parseInt(params.year, 10) : undefined;
 
-  const [profile, categories, regencies, years, activities] = await Promise.all([
-    getProfile(),
+  const [categories, regencies, years, activities] = await Promise.all([
     getActivityCategories({ activeOnly: true }),
     getDistinctRegencies(),
     getDistinctYears(),
@@ -174,17 +173,7 @@ export default async function RekamKerjaPage({ searchParams }: RekamKerjaPagePro
       </main>
 
       {/* Public Footer */}
-      <footer className="py-12 px-6 bg-white border-t border-neutral-200 text-xs text-neutral-500 text-center mt-20">
-        <div className="max-w-6xl mx-auto space-y-2">
-          <p className="font-bold text-[#191919] text-sm">
-            {profile?.display_name || 'Rahmat Ichwan Bahtiar'}
-          </p>
-          <p className="text-[#AF191A] font-medium">Platform Resmi Informasi &amp; Akuntabilitas Publik</p>
-          <p className="text-[11px] text-neutral-400 pt-4">
-            &copy; {new Date().getFullYear()} Rahmat Ichwan Bahtiar. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <PublicFooter />
     </div>
   );
 }

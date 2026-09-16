@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { PublicHeader } from '@/components/layout/public-header';
+import { PublicFooter } from '@/components/layout/public-footer';
 import { getActivityBySlug } from '@/services/activities';
 import type { ActivityType } from '@/types/database';
 
@@ -250,16 +251,7 @@ export default async function RekamKerjaDetailPage({ params }: RekamKerjaDetailP
       </main>
 
       {/* Public Footer */}
-      <footer className="border-t border-neutral-200 py-8 px-6 bg-white text-neutral-500 mt-20">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-center sm:text-left">
-          <div>&copy; {new Date().getFullYear()} Rahmat Ichwan Bahtiar. Platform Informasi &amp; Akuntabilitas Publik.</div>
-          <div className="flex gap-4">
-            <Link href="/" className="hover:text-[#AF191A] transition-colors">Beranda</Link>
-            <Link href="/tentang" className="hover:text-[#AF191A] transition-colors">Tentang</Link>
-            <Link href="/rekam-kerja" className="text-[#AF191A] font-semibold">Rekam Kerja</Link>
-          </div>
-        </div>
-      </footer>
+      <PublicFooter />
     </div>
   );
 }

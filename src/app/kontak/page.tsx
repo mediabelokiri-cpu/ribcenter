@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { PublicHeader } from '@/components/layout/public-header';
+import { PublicFooter } from '@/components/layout/public-footer';
 import {
   getContactSettings,
   getSocialSettings,
@@ -272,17 +273,7 @@ export default async function KontakPage() {
       </main>
 
       {/* Footer */}
-      <footer className="py-12 px-6 bg-white border-t border-neutral-200 text-xs text-neutral-600 text-center">
-        <div className="max-w-6xl mx-auto space-y-2">
-          <p className="font-bold text-[#191919] text-sm">
-            {general.site_name} — Rahmat Ichwan Bahtiar
-          </p>
-          <p className="text-[#AF191A] font-medium">{general.site_tagline}</p>
-          <p className="text-[11px] text-neutral-400 pt-4">
-            &copy; {new Date().getFullYear()} Rahmat Ichwan Bahtiar. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <PublicFooter />
     </div>
   );
 }

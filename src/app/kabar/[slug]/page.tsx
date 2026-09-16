@@ -3,8 +3,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { PublicHeader } from '@/components/layout/public-header';
+import { PublicFooter } from '@/components/layout/public-footer';
 import { getArticleBySlug } from '@/services/articles';
-import { getProfile } from '@/services/profile';
 
 export const dynamic = 'force-dynamic';
 
@@ -74,10 +74,7 @@ function formatDate(iso: string | null): string {
 export default async function ArticleDetailPage({ params }: DetailPageProps) {
   const { slug } = await params;
 
-  const [article, profile] = await Promise.all([
-    getArticleBySlug(slug),
-    getProfile(),
-  ]);
+  const article = await getArticleBySlug(slug);
 
   if (!article || article.status !== 'PUBLISHED') {
     notFound();
@@ -287,21 +284,7 @@ export default async function ArticleDetailPage({ params }: DetailPageProps) {
       </main>
 
       {/* Public Footer */}
-      <footer className="py-8 border-t border-neutral-200 bg-neutral-50 text-neutral-600 text-xs mt-12">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-          <div>
-            <p className="font-semibold text-[#191919]">
-              {profile?.display_name || 'Rahmat Ichwan Bahtiar'}
-            </p>
-            <p className="text-neutral-500 text-[11px] mt-0.5">
-              Platform Informasi Publik &amp; Akuntabilitas Kerja
-            </p>
-          </div>
-          <p className="text-neutral-500">
-            &copy; {new Date().getFullYear()} Rahmat Ichwan Bahtiar. Seluruh hak cipta dilindungi.
-          </p>
-        </div>
-      </footer>
+      <PublicFooter />
     </div>
   );
 }
