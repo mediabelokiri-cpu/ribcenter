@@ -415,18 +415,38 @@ export default async function HomePage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {albums.slice(0, getNumber(content.display_count, 3)).map((alb) => (
-                      <div
+                      <Link
                         key={alb.id}
-                        className="rounded-xl border border-neutral-200 bg-white overflow-hidden shadow-xs hover:border-[#AF191A] transition-colors"
+                        href={`/galeri/foto/${alb.slug}`}
+                        className="group rounded-2xl border border-neutral-200 bg-white overflow-hidden shadow-xs hover:border-[#AF191A] hover:shadow-md transition-all flex flex-col justify-between"
                       >
-                        <div className="h-40 bg-neutral-100 flex items-center justify-center text-xs text-neutral-400">
-                          {alb.cover_image_url ? 'Dokumentasi Visual' : 'Album Dokumentasi'}
+                        <div>
+                          {alb.cover_image_url ? (
+                            <div className="aspect-[16/10] w-full overflow-hidden bg-neutral-100">
+                              <img
+                                src={alb.cover_image_url}
+                                alt={alb.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                            </div>
+                          ) : (
+                            <div className="aspect-[16/10] w-full bg-neutral-100 flex items-center justify-center text-xs text-neutral-400 font-mono">
+                              📷 Album Dokumentasi
+                            </div>
+                          )}
+                          <div className="p-5 space-y-1.5">
+                            <h3 className="text-sm font-bold text-[#191919] group-hover:text-[#AF191A] transition-colors line-clamp-2 leading-snug">
+                              {alb.title}
+                            </h3>
+                            <p className="text-xs text-neutral-500 line-clamp-2 leading-relaxed">
+                              {alb.description}
+                            </p>
+                          </div>
                         </div>
-                        <div className="p-4 space-y-1">
-                          <h3 className="text-sm font-bold text-[#191919]">{alb.title}</h3>
-                          <p className="text-xs text-neutral-500 line-clamp-1">{alb.description}</p>
+                        <div className="px-5 pb-4 pt-1 flex items-center justify-between text-[11px] font-semibold text-[#AF191A]">
+                          <span>Lihat Album &rarr;</span>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                   </div>
                 </div>

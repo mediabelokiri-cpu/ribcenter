@@ -60,20 +60,13 @@ export function PublicHeader({ activeRoute = '/' }: PublicHeaderProps) {
           })}
         </nav>
 
-        {/* Action Button: Aspirasi / CMS */}
+        {/* Action Button: Aspirasi */}
         <div className="flex items-center gap-2">
           <Link
             href="/aspirasi"
             className="hidden sm:inline-flex px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-[#AF191A] text-white hover:bg-[#8e1415] transition-colors shadow-xs"
           >
             Kirim Aspirasi
-          </Link>
-          <Link
-            href="/admin"
-            className="px-2.5 py-1.5 text-[11px] font-mono text-neutral-500 hover:text-[#AF191A] transition-colors"
-            title="Masuk CMS Admin"
-          >
-            CMS
           </Link>
         </div>
       </div>

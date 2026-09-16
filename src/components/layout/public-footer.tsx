@@ -123,49 +123,7 @@ export function PublicFooter() {
             </ul>
           </div>
 
-          {/* Partisipasi & Kontak */}
-          <div className="space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-white block">
-              Partisipasi Warga
-            </span>
-            <ul className="space-y-2 text-xs">
-              <li>
-                <Link
-                  href="/aspirasi"
-                  className="font-semibold text-[#FFCC00] hover:underline flex items-center gap-1"
-                >
-                  <span>Kirim Aspirasi</span>
-                  <span>&rarr;</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/kontak" className="hover:text-white transition-colors">
-                  Kontak &amp; Sekretariat
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/6281155667788"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#25D366] transition-colors flex items-center gap-1.5"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#25D366]"></span>
-                  <span>WhatsApp Pelayanan</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:kontak@kawanrib.id"
-                  className="hover:text-white transition-colors"
-                >
-                  kontak@kawanrib.id
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Dokumen Hukum & Akses */}
+          {/* Informasi Hukum */}
           <div className="space-y-3">
             <span className="text-xs font-bold uppercase tracking-wider text-white block">
               Informasi Hukum
@@ -181,16 +139,46 @@ export function PublicFooter() {
                   Syarat &amp; Ketentuan
                 </Link>
               </li>
-              <li className="pt-2">
-                <Link
-                  href="/admin"
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800 font-mono text-[11px] transition-colors"
-                >
-                  <span>Portal CMS</span>
-                  <span>&rarr;</span>
+              <li>
+                <Link href="/kontak" className="hover:text-white transition-colors">
+                  Kontak &amp; Sekretariat
                 </Link>
               </li>
             </ul>
+          </div>
+
+          {/* Lokasi Kantor / Peta Maps */}
+          <div className="space-y-3">
+            <span className="text-xs font-bold uppercase tracking-wider text-white block">
+              Lokasi Kantor
+            </span>
+            <div className="space-y-2 text-xs">
+              <div className="rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900 aspect-[16/10] w-full">
+                <iframe
+                  title="Peta Lokasi Kantor Sekretariat RIB CENTER"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.27896434444!2d117.091176!3d-0.501988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df67f65c92d5343%3A0x3030bfbcaf770b0!2sSamarinda%2C%20Kota%20Samarinda%2C%20Kalimantan%20Timur!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full opacity-90 hover:opacity-100 transition-opacity"
+                />
+              </div>
+              <p className="text-[11px] text-neutral-400 leading-snug">
+                Jl. Pahlawan No. 45, Samarinda, Kalimantan Timur 75123
+              </p>
+              <a
+                href="https://maps.google.com/?q=Samarinda,+Kalimantan+Timur"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#FFCC00] hover:underline"
+              >
+                <span>Buka Google Maps</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
