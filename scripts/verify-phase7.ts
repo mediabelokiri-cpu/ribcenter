@@ -212,8 +212,8 @@ async function runTests() {
   const aspirationRes = await submitPublicAspiration({
     name: 'Penguji Verifikasi Akhir',
     contact: '081122334455',
-    regency: 'Kota Samarinda',
-    district: 'Kecamatan Samarinda Kota',
+    regency: 'Kab. Polewali Mandar, Provinsi Sulawesi Barat',
+    district: 'Kecamatan Polewali',
     category: 'Pelayanan Publik & Tata Kelola',
     subject: 'Verifikasi Kesiapan Kanal Aspirasi Publik',
     message: 'Pengujian end-to-end untuk memastikan saluran aspirasi warga siap produksi.',

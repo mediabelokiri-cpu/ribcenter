@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   keywords: [
     'Rahmat Ichwan Bahtiar',
     'RIB CENTER',
-    'Kalimantan Timur',
+    'Kab. Polewali Mandar, Provinsi Sulawesi Barat',
     'Rekam Kerja',
     'Akuntabilitas Publik',
     'Transparansi Kebijakan',

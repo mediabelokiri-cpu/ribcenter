@@ -16,10 +16,10 @@ let memoryAspirations: Aspiration[] = [
     id: '60000000-0000-0000-0000-000000000001',
     name: 'Budi Santoso',
     contact: '081234567890',
-    regency: 'Kabupaten Kutai Kartanegara',
-    district: 'Kecamatan Loa Kulu',
+    regency: 'Kab. Polewali Mandar, Provinsi Sulawesi Barat',
+    district: 'Kecamatan Tinambung',
     category: 'Infrastruktur',
-    subject: 'Perbaikan Lampu Penerangan Jalan Desa Ponoragan',
+    subject: 'Perbaikan Lampu Penerangan Jalan Desa Karama',
     message:
       'Mohon bantuan koordinasi untuk penambahan dan perbaikan lampu penerangan jalan utama desa yang telah padam sejak 2 bulan terakhir demi keselamatan warga di malam hari.',
     attachment_url: null,
@@ -32,8 +32,8 @@ let memoryAspirations: Aspiration[] = [
     id: '60000000-0000-0000-0000-000000000002',
     name: 'Siti Rahmawati',
     contact: 'siti.rahmawati@example.com',
-    regency: 'Kota Samarinda',
-    district: 'Kecamatan Samarinda Utara',
+    regency: 'Kab. Polewali Mandar, Provinsi Sulawesi Barat',
+    district: 'Kecamatan Polewali',
     category: 'Pendidikan',
     subject: 'Bantuan Fasilitas Buku & Pojok Baca Komunitas',
     message:
@@ -41,7 +41,7 @@ let memoryAspirations: Aspiration[] = [
     attachment_url: null,
     status: 'DITINJAU',
     internal_note:
-      'Telah dihubungi tim perwakilan. Sedang didata judul buku yang dibutuhkan untuk koordinasi penyaluran CSR/bantuan literasi.',
+      'Telah dihubungi tim perwakilan. Sedang didata judul buku yang dibutuhkan untuk koordinasi penyaluran CSR/bantuan literasi di Kab. Polewali Mandar, Provinsi Sulawesi Barat.',
     created_at: new Date(Date.now() - 3600000 * 24).toISOString(), // 1 day ago
     updated_at: new Date(Date.now() - 3600000 * 12).toISOString(),
   },
@@ -49,8 +49,8 @@ let memoryAspirations: Aspiration[] = [
     id: '60000000-0000-0000-0000-000000000003',
     name: 'Ahmad Fauzi',
     contact: '085299887766',
-    regency: 'Kabupaten Kutai Timur',
-    district: 'Kecamatan Sangatta Utara',
+    regency: 'Kab. Polewali Mandar, Provinsi Sulawesi Barat',
+    district: 'Kecamatan Wonomulyo',
     category: 'Pertanian',
     subject: 'Keluhan Distribusi Pupuk Subsidi Petani Jagung',
     message:
@@ -58,7 +58,7 @@ let memoryAspirations: Aspiration[] = [
     attachment_url: null,
     status: 'DALAM_TINDAK_LANJUT',
     internal_note:
-      'Sudah diteruskan kepada koordinator daerah Sangatta untuk verifikasi data kelompok tani terdaftar di Simluhtan.',
+      'Sudah diteruskan kepada koordinator daerah Kab. Polewali Mandar, Provinsi Sulawesi Barat untuk verifikasi data kelompok tani terdaftar di Simluhtan.',
     created_at: new Date(Date.now() - 3600000 * 48).toISOString(), // 2 days ago
     updated_at: new Date(Date.now() - 3600000 * 6).toISOString(),
   },
@@ -66,8 +66,8 @@ let memoryAspirations: Aspiration[] = [
     id: '60000000-0000-0000-0000-000000000004',
     name: 'Dewi Lestari',
     contact: '081344556677',
-    regency: 'Kota Balikpapan',
-    district: 'Kecamatan Balikpapan Selatan',
+    regency: 'Kab. Polewali Mandar, Provinsi Sulawesi Barat',
+    district: 'Kecamatan Campalagian',
     category: 'Kesehatan',
     subject: 'Sosialisasi Pencegahan Stunting Balita',
     message:

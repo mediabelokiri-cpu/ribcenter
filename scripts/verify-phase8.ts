@@ -173,7 +173,7 @@ async function runPhase8Verification() {
   const hasDraftActivity = allActivities.some((a) => a.status !== 'PUBLISHED');
   assert(!hasDraftActivity, 'Public activities contain 0 un-published/draft items');
 
-  const draftActivity = await getActivityBySlug('kunjungan-kerja-evaluasi-infrastruktur-jalan-poros-kutim');
+  const draftActivity = await getActivityBySlug('kunjungan-kerja-evaluasi-infrastruktur-jalan-poros-polman');
   assert(!draftActivity || draftActivity.status === 'PUBLISHED', 'Draft activity is blocked from public slug resolution');
 
   // 4.2 Articles draft isolation
@@ -181,7 +181,7 @@ async function runPhase8Verification() {
   const hasDraftArticle = allArticles.some((a) => a.status !== 'PUBLISHED');
   assert(!hasDraftArticle, 'Public articles contain 0 un-published/draft items');
 
-  const draftArticle = await getArticleBySlug('catatan-kritis-penguatan-kapasitas-nelayan-pesisir-berau');
+  const draftArticle = await getArticleBySlug('catatan-kritis-penguatan-kapasitas-nelayan-pesisir-polman');
   assert(!draftArticle || draftArticle.status === 'PUBLISHED', 'Draft article is blocked from public slug resolution');
 
   // 4.3 Clean slugs validation
@@ -222,7 +222,7 @@ async function runPhase8Verification() {
   const validFormData = new FormData();
   validFormData.append('name', 'Audit QA Warga');
   validFormData.append('contact', '081299998888');
-  validFormData.append('regency', 'Kota Samarinda');
+  validFormData.append('regency', 'Kab. Polewali Mandar, Provinsi Sulawesi Barat');
   validFormData.append('category', 'Infrastruktur & Jalan');
   validFormData.append('subject', 'Audit QA Aspirasi Publik');
   validFormData.append('message', 'Pengujian regresi sistem aspirasi warga dan verifikasi tiket pelaporan.');

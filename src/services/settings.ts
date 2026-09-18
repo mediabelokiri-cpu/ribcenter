@@ -47,7 +47,7 @@ const memorySettings: SiteSetting[] = [
     value: {
       email: 'kontak@kawanrib.id',
       whatsapp: '081155667788',
-      address: 'Jl. Pahlawan No. 45, Samarinda, Kalimantan Timur 75123',
+      address: 'Jl. Pahlawan No. 45, Kab. Polewali Mandar, Provinsi Sulawesi Barat 91311',
       office_hours: 'Senin – Jumat: 08.30 – 17.00 WITA',
       map_embed_url: '',
     },
@@ -172,7 +172,7 @@ export async function getContactSettings(): Promise<ContactSettings> {
     whatsapp: (val.whatsapp as string) || '081155667788',
     address:
       (val.address as string) ||
-      'Jl. Pahlawan No. 45, Samarinda, Kalimantan Timur 75123',
+      'Jl. Pahlawan No. 45, Kab. Polewali Mandar, Provinsi Sulawesi Barat 91311',
     office_hours: (val.office_hours as string) || 'Senin – Jumat: 08.30 – 17.00 WITA',
     map_embed_url: (val.map_embed_url as string) || '',
   };

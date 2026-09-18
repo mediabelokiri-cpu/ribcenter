@@ -189,7 +189,7 @@ export function SettingsManager({
               name="address"
               rows={3}
               defaultValue={initialContact.address}
-              placeholder="Contoh: Jl. Pahlawan No. 45, Samarinda, Kalimantan Timur 75123"
+              placeholder="Contoh: Jl. Pahlawan No. 45, Kab. Polewali Mandar, Provinsi Sulawesi Barat 91311"
               className="w-full p-2.5 rounded-lg border border-neutral-300 text-xs focus:ring-1 focus:ring-[#AF191A] focus:outline-hidden"
             />
           </div>

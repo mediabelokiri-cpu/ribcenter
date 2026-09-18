@@ -506,7 +506,7 @@ COMMENT ON COLUMN public.activities.video_url IS 'Optional external video link (
 INSERT INTO public.site_settings (key, value, is_public)
 VALUES
   ('general', '{"site_name": "RIB CENTER", "site_tagline": "Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar", "description": "Platform resmi transparansi rekam kerja, publikasi gagasan, dan saluran aspirasi masyarakat Rahmat Ichwan Bahtiar."}'::jsonb, true),
-  ('contact', '{"email": "kontak@kawanrib.id", "whatsapp": "081155667788", "address": "Jl. Pahlawan No. 45, Samarinda, Kalimantan Timur 75123"}'::jsonb, true),
+  ('contact', '{"email": "kontak@kawanrib.id", "whatsapp": "081155667788", "address": "Jl. Pahlawan No. 45, Kab. Polewali Mandar, Provinsi Sulawesi Barat 91311"}'::jsonb, true),
   ('social', '{"instagram": "https://instagram.com/rahmatichwanbahtiar", "facebook": "https://facebook.com/kawan.rahmatichwanbahtiar", "tiktok": "https://tiktok.com/@rahmatichwanbahtiar", "youtube": "https://youtube.com/@kawanrib"}'::jsonb, true),
   ('seo', '{"meta_title": "RIB CENTER", "meta_description": "Platform Informasi & Akuntabilitas Publik Rahmat Ichwan Bahtiar", "og_image": "/rahmat-hero.png"}'::jsonb, true)
 ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value;

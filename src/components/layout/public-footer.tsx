@@ -15,11 +15,11 @@ export async function PublicFooter() {
 
   const mapEmbedSrc =
     contact.map_embed_url?.trim() ||
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.27896434444!2d117.091176!3d-0.501988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df67f65c92d5343%3A0x3030bfbcaf770b0!2sSamarinda%2C%20Kota%20Samarinda%2C%20Kalimantan%20Timur!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid';
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127339.69748682669!2d119.2612711!3d-3.432859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d94943f773b4329%3A0x3030bfbcaf770b0!2sPolewali%20Mandar%2C%20Sulawesi%20Barat!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid';
 
   const mapsSearchUrl = contact.address
     ? `https://maps.google.com/?q=${encodeURIComponent(contact.address)}`
-    : 'https://maps.google.com/?q=Samarinda,+Kalimantan+Timur';
+    : 'https://maps.google.com/?q=Kab.+Polewali+Mandar,+Provinsi+Sulawesi+Barat';
 
   return (
     <footer className="bg-neutral-950 border-t border-neutral-800 text-xs text-neutral-400">
@@ -208,7 +208,7 @@ export async function PublicFooter() {
                 />
               </div>
               <p className="text-[11px] text-neutral-400 leading-snug">
-                {contact.address || 'Jl. Pahlawan No. 45, Samarinda, Kalimantan Timur 75123'}
+                {contact.address || 'Jl. Pahlawan No. 45, Kab. Polewali Mandar, Provinsi Sulawesi Barat 91311'}
               </p>
               <a
                 href={mapsSearchUrl}

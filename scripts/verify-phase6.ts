@@ -64,8 +64,8 @@ async function runTests() {
   const validSubmission = await submitPublicAspiration({
     name: 'Warga Penguji Otomatis',
     contact: '081298765432',
-    regency: 'Kota Samarinda',
-    district: 'Kecamatan Samarinda Ulu',
+    regency: 'Kab. Polewali Mandar, Provinsi Sulawesi Barat',
+    district: 'Kecamatan Polewali',
     category: 'Infrastruktur & Jalan',
     subject: 'Usulan Perbaikan Gorong-Gorong Jalan Merbabu',
     message:
@@ -280,7 +280,7 @@ async function runTests() {
   const updateContactRes = await updateSiteSettingByKey('contact', {
     email: 'sekretariat.resmi@kawanrib.id',
     whatsapp: '081199887766',
-    address: 'Jl. Merdeka No. 10, Samarinda',
+    address: 'Jl. Merdeka No. 10, Kab. Polewali Mandar, Provinsi Sulawesi Barat',
     office_hours: 'Senin – Sabtu: 08.00 – 16.30 WITA',
   });
   assert(updateContactRes.success, 'Updates contact settings via site_settings');

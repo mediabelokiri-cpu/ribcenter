@@ -5,17 +5,13 @@ import Link from 'next/link';
 import { submitAspirationAction, type SubmitAspirationResult } from './actions';
 
 const REGENCY_OPTIONS = [
-  'Kota Samarinda',
-  'Kota Balikpapan',
-  'Kabupaten Kutai Kartanegara',
-  'Kabupaten Kutai Timur',
-  'Kabupaten Kutai Barat',
-  'Kabupaten Paser',
-  'Kabupaten Berau',
-  'Kabupaten Penajam Paser Utara',
-  'Kota Bontang',
-  'Kabupaten Mahakam Ulu',
-  'Luar Wilayah Kaltim / Lainnya',
+  'Kab. Polewali Mandar, Provinsi Sulawesi Barat',
+  'Kabupaten Majene',
+  'Kabupaten Mamuju',
+  'Kabupaten Mamasa',
+  'Kabupaten Pasangkayu',
+  'Kabupaten Mamuju Tengah',
+  'Luar Wilayah Kab. Polewali Mandar, Provinsi Sulawesi Barat / Lainnya',
 ];
 
 const CATEGORY_OPTIONS = [
@@ -257,7 +253,7 @@ export function AspirationForm() {
               type="text"
               id="input-district"
               name="district"
-              placeholder="Contoh: Samarinda Ulu / Kel. Air Putih"
+              placeholder="Contoh: Tinambung / Wonomulyo, Kab. Polewali Mandar, Provinsi Sulawesi Barat"
               className="w-full p-2.5 rounded-lg border border-neutral-300 text-xs focus:ring-1 focus:ring-[#AF191A] focus:outline-hidden"
             />
           </div>
